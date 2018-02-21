@@ -5,11 +5,17 @@ by
 Null and Void LLC
 
 Andrew Christen : Manager
+----------------------------------
 Bruce Peters : Database Specialist
+----------------------------------
 Jordan Nelson : Developer
+----------------------------------
 Milos Skalicky : Developer
+----------------------------------
 Michael Feldt : Presentation/Documentation Specialist
+-----------------------------------------------------
 Ervin Mitra : Tools/Security Specialist
+----------------------------------------
 
 Lackluster Video is currently a small single location video store with 2 managers and 6 clerks. It also has about 5,000 movies in stock and 1,500 active customers. Current Processes include renting movies, returning movies and contacting customers about late returns. 
 
