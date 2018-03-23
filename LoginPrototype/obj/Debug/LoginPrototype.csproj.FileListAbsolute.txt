@@ -1,0 +1,10 @@
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\LoginPrototype\bin\Debug\LoginPrototype.exe.config
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\LoginPrototype\bin\Debug\LoginPrototype.exe
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\LoginPrototype\bin\Debug\LoginPrototype.pdb
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\LoginPrototype\obj\Debug\LoginPrototype.csprojResolveAssemblyReference.cache
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\LoginPrototype\obj\Debug\LoginPrototype.Form1.resources
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\LoginPrototype\obj\Debug\LoginPrototype.Properties.Resources.resources
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\LoginPrototype\obj\Debug\LoginPrototype.csproj.GenerateResource.Cache
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\LoginPrototype\obj\Debug\LoginPrototype.csproj.CoreCompileInputs.cache
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\LoginPrototype\obj\Debug\LoginPrototype.exe
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\LoginPrototype\obj\Debug\LoginPrototype.pdb

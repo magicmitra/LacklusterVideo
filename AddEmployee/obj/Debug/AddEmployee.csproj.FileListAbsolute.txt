@@ -1,0 +1,10 @@
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\AddEmployee\bin\Debug\AddEmployee.exe.config
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\AddEmployee\bin\Debug\AddEmployee.exe
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\AddEmployee\bin\Debug\AddEmployee.pdb
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\AddEmployee\obj\Debug\AddEmployee.csprojResolveAssemblyReference.cache
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\AddEmployee\obj\Debug\AddEmployee.Form1.resources
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\AddEmployee\obj\Debug\AddEmployee.Properties.Resources.resources
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\AddEmployee\obj\Debug\AddEmployee.csproj.GenerateResource.Cache
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\AddEmployee\obj\Debug\AddEmployee.csproj.CoreCompileInputs.cache
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\AddEmployee\obj\Debug\AddEmployee.exe
+C:\Users\Miti\Documents\CSC478SECapstone\LacklusterVideoApp\AddEmployee\obj\Debug\AddEmployee.pdb
