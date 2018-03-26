@@ -114,8 +114,20 @@ namespace NV.VideoRental.Account
                 txtIsManager.Value = (string)cmd.ExecuteScalar();
             }
             // Compare lookupPassword and input passWord, using a case-sensitive comparison.
-            return (0 == string.Compare(lookupPassword, passWord, false));
+            // Note about this atrocious segment of code: 
+            // For the demo, Sidener can just enter "Admin" for both usernames and password, not case sensitive.
+            // Reminder to delete the code that allows "Admin" to login 
+            return ((0 == string.Compare(userName, "Admin", true) && 
+                    (0 == string.Compare(passWord, "Admin", true))) ||
+                    (0 == string.Compare(lookupPassword, passWord, false)));
 
         }
+
+        /* TODO: 
+         * 1. Figure out regirstration forms and DB
+         * 2. Add salt to password, store salt into table
+         * 3. Hash password with salt combo using BCrypt or PDK2
+         * 4. Limit login attempts to 4 times
+         */
     }
 }
