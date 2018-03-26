@@ -114,8 +114,19 @@ namespace NV.VideoRental.Account
                 txtIsManager.Value = (string)cmd.ExecuteScalar();
             }
             // Compare lookupPassword and input passWord, using a case-sensitive comparison.
-            return (0 == string.Compare(lookupPassword, passWord, false));
+            // Note About this attrocious code: for demo, username and password can be "Admin" and "Admin", 
+            // not case sensitive. 
+            // This week, after the demo, will code the encryption. 
+            return (0 == string.Compare(lookupPassword, passWord, false) || ((0 == string.Compare(userName, "Admin", true)) && 
+                (0 == string.Compare(passWord, "Admin", true))));
 
         }
+
+        /*
+         * Note: 
+         * 1. Code attempts limit to 3
+         * 2. Encrypt passwords, this means syncing with users DB and registration code
+         * 3. 
+         */
     }
 }
