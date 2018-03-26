@@ -1,16 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Rent.aspx.cs" Inherits="NV.VideoRental.Rental.Rent" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Rent.aspx.cs" Inherits="NV.VideoRental.Rental.Rent" %>
 
-<!DOCTYPE html>
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    Lorem ipsum rentals.
+</asp:content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
