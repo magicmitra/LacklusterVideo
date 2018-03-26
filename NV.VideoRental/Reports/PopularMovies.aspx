@@ -1,16 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PopularMovies.aspx.cs" Inherits="NV.VideoRental.Reports.PopularMovies" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PopularMovies.aspx.cs" Inherits="NV.VideoRental.Reports.PopularMovies" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+   Lorem ipsum Popular Movies.
+</asp:content>

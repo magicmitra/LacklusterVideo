@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -205,10 +207,13 @@
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Rental\Main.aspx" />
     <Content Include="Rental\Rent.aspx" />
     <Content Include="Rental\Return.aspx" />
     <Content Include="Reports\ActiveCustomers.aspx" />
+    <Content Include="Reports\CustomReport.aspx" />
     <Content Include="Reports\LateMovies.aspx" />
+    <Content Include="Reports\Main.aspx" />
     <Content Include="Reports\PopularMovies.aspx" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -297,6 +302,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rental\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rental\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Rental\Rent.aspx.cs">
       <DependentUpon>Rent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -318,12 +330,26 @@
     <Compile Include="Reports\ActiveCustomers.aspx.designer.cs">
       <DependentUpon>ActiveCustomers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\CustomReport.aspx.cs">
+      <DependentUpon>CustomReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\CustomReport.aspx.designer.cs">
+      <DependentUpon>CustomReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\LateMovies.aspx.cs">
       <DependentUpon>LateMovies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reports\LateMovies.aspx.designer.cs">
       <DependentUpon>LateMovies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reports\PopularMovies.aspx.cs">
       <DependentUpon>PopularMovies.aspx</DependentUpon>
