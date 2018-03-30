@@ -50,7 +50,7 @@ namespace NV.VideoRental.Account
             if((0 == string.Compare(userName, "Admin", true)) && (0 == string.Compare(passWord, "Admin", true)))
             {
                 return true;
-                // should allow login now.
+                // should allow login now.  
             }
 
             
@@ -123,6 +123,15 @@ namespace NV.VideoRental.Account
                 // Execute command and fetch pwd field into lookupPassword string.
                 txtIsManager.Value = (string)cmd.ExecuteScalar();
             }
+
+            /* Hash input password ('passWord') in here
+             * Use a variable to store the output of the hash. Can use the same parameter
+             * 'passWord' passed into this method. Contents will be replaced with new hash value.
+             * can hardcode it in here or code a function that takes an input, hashes it, then returns
+             * the output. 
+             * Input------->Hash Function-------->Output(returned)
+             */
+
             // Compare lookupPassword and input passWord, using a case-sensitive comparison.
             // Note about this atrocious segment of code: 
             // For the demo, Sidener can just enter "Admin" for both usernames and password, not case sensitive.
