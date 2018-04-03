@@ -53,10 +53,15 @@ namespace NV.VideoRental.Account
                 // should allow login now.  
             }
 
-            
+            // 4/3/18: Added variables cmd2(SqlCommand), lookupSalt(string)
+            // and passwordPlusSalt(string)
+
             SqlConnection conn;
             SqlCommand cmd;
+            SqlCommand cmd2; // salt look up
             string lookupPassword = null;
+            string lookupSalt = null;
+            string passwordPlusSalt = null;
 
             // Check for invalid userName.
             // userName must not be null and must be between 1 and 15 characters.
@@ -90,9 +95,17 @@ namespace NV.VideoRental.Account
                 // Execute command and fetch pwd field into lookupPassword string.
                 lookupPassword = (string)cmd.ExecuteScalar();
 
+                // Create SqlCommand to select salt field from users table given supplied username.
+                // Execute command and fect salt field into lookupSalt string.
+                cmd2 = new SqlCommand("Select salt from users where userName=@userName", conn);
+                cmd2.Parameters.Add("@userName", SqlDbType.VarChar, 25);
+                cmd2.Parameters["@username"].Value = userName;
+                lookupSalt = (string)cmd.ExecuteScalar();
+
                 // Cleanup command and connection objects.
                 cmd.Dispose();
                 conn.Dispose();
+                cmd2.Dispose();
             }
             catch (Exception ex)
             {
@@ -124,13 +137,21 @@ namespace NV.VideoRental.Account
                 txtIsManager.Value = (string)cmd.ExecuteScalar();
             }
 
-            /* Hash input password ('passWord') in here
+            /* Hash input password ('passWord' + 'lookupSalt') in here
              * Use a variable to store the output of the hash. Can use the same parameter
              * 'passWord' passed into this method. Contents will be replaced with new hash value.
              * can hardcode it in here or code a function that takes an input, hashes it, then returns
              * the output. 
              * Input------->Hash Function-------->Output(returned)
              */
+            passwordPlusSalt = passWord + lookupSalt;
+
+            /* Whenever the connection to Security folder has been established
+             * HasherOfPasswords hasher = new HasherOfPAsswords();
+             * passWord = hasher.HashPassword(passWordPlusSalt);
+             * NOTE: UNCOMMENT THIS PART ONCE CONNECTIONS HAVE BEEN MADE
+             */
+            
 
             // Compare lookupPassword and input passWord, using a case-sensitive comparison.
             // Note about this atrocious segment of code: 
@@ -144,8 +165,8 @@ namespace NV.VideoRental.Account
 
         /* TODO: 
          * 1. Figure out regirstration forms and DB
-         * 2. Add salt to password, store salt into table
-         * 3. Hash password with salt combo using BCrypt or PDK2
+         * 2. Add salt to password, store salt into table (Progressed)
+         * 3. Hash password with salt combo using BCrypt or PDK2(Progressed)
          * 4. Limit login attempts to 4 times
          */
     }
