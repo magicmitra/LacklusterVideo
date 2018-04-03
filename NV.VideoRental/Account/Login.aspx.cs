@@ -100,7 +100,7 @@ namespace NV.VideoRental.Account
                 cmd2 = new SqlCommand("Select salt from users where userName=@userName", conn);
                 cmd2.Parameters.Add("@userName", SqlDbType.VarChar, 25);
                 cmd2.Parameters["@username"].Value = userName;
-                lookupSalt = (string)cmd.ExecuteScalar();
+                lookupSalt = (string)cmd2.ExecuteScalar();
 
                 // Cleanup command and connection objects.
                 cmd.Dispose();
