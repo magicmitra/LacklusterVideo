@@ -51,21 +51,22 @@ namespace SaltFunction
         {
             char[] saltChar = new char[4];
 
-            if((first.Length < 3) || (last.Length < 2))
-            {
-                // flood with ZYXW for salt for short names
-                saltChar[0] = 'Z';
-                saltChar[1] = 'Y';
-                saltChar[2] = 'X';
-                saltChar[3] = 'W';
-            }
-            else
+            if((first.Length > 3) || (last.Length > 2))
             {
                 // proceed with normal salt generation
                 saltChar[0] = last[1];
                 saltChar[1] = first[2];
                 saltChar[2] = last[0];
                 saltChar[3] = first[1];
+            }
+            else
+            {
+                // people with shorter names get a 
+                // generic salt: 'ZYXW'
+                saltChar[0] = 'Z';
+                saltChar[1] = 'Y';
+                saltChar[2] = 'X';
+                saltChar[3] = 'W';
             }
 
             string output = new string(saltChar);
