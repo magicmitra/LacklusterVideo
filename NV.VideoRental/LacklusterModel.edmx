@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LacklusterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="custID" />
+          </Key>
+          <Property Name="custID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="streetAddress" Type="varchar(max)" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="zip" Type="int" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="balance" Type="money" />
+          <Property Name="dvdsOut" Type="int" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="dvd">
+          <Key>
+            <PropertyRef Name="videoID" />
+            <PropertyRef Name="dvdID" />
+          </Key>
+          <Property Name="videoID" Type="int" Nullable="false" />
+          <Property Name="dvdID" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" />
+          <Property Name="rented" Type="bit" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="empID" />
+          </Key>
+          <Property Name="empID" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="streetAddress" Type="varchar(max)" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="zip" Type="int" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="userName" Type="varchar" MaxLength="10" />
+          <Property Name="llv_password" Type="varchar" MaxLength="50" />
+          <Property Name="salt" Type="char" MaxLength="10" />
+          <Property Name="manager" Type="bit" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="rental">
+          <Key>
+            <PropertyRef Name="rentalID" />
+          </Key>
+          <Property Name="rentalID" Type="int" Nullable="false" />
+          <Property Name="custID" Type="int" Nullable="false" />
+          <Property Name="videoID" Type="int" Nullable="false" />
+          <Property Name="dvdID" Type="int" Nullable="false" />
+          <Property Name="empID" Type="int" Nullable="false" />
+          <Property Name="dayRented" Type="datetime" />
+          <Property Name="dayDue" Type="datetime" />
+          <Property Name="returned" Type="bit" />
+          <Property Name="balanceDue" Type="money" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="video">
+          <Key>
+            <PropertyRef Name="videoID" />
+          </Key>
+          <Property Name="videoID" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar(max)" />
+          <Property Name="studio" Type="varchar(max)" />
+          <Property Name="released" Type="datetime" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="sound" Type="varchar" MaxLength="50" />
+          <Property Name="versions" Type="varchar" MaxLength="50" />
+          <Property Name="price" Type="money" />
+          <Property Name="rating" Type="varchar" MaxLength="50" />
+          <Property Name="year" Type="varchar" MaxLength="50" />
+          <Property Name="genre" Type="varchar" MaxLength="50" />
+          <Property Name="aspect" Type="varchar" MaxLength="50" />
+          <Property Name="UPC" Type="varchar" MaxLength="50" />
+          <Property Name="releaseDate" Type="datetime" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="LacklusterModelStoreContainer">
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dvd" EntityType="Self.dvd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rental" EntityType="Self.rental" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="video" EntityType="Self.video" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LacklusterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="custID" />
+          </Key>
+          <Property Name="custID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="streetAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zip" Type="Int32" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="balance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="dvdsOut" Type="Int32" />
+          <Property Name="active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="dvd">
+          <Key>
+            <PropertyRef Name="videoID" />
+            <PropertyRef Name="dvdID" />
+          </Key>
+          <Property Name="videoID" Type="Int32" Nullable="false" />
+          <Property Name="dvdID" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="rented" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="empID" />
+          </Key>
+          <Property Name="empID" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="streetAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zip" Type="Int32" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="llv_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="salt" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="manager" Type="Boolean" />
+          <Property Name="active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="rental">
+          <Key>
+            <PropertyRef Name="rentalID" />
+          </Key>
+          <Property Name="rentalID" Type="Int32" Nullable="false" />
+          <Property Name="custID" Type="Int32" Nullable="false" />
+          <Property Name="videoID" Type="Int32" Nullable="false" />
+          <Property Name="dvdID" Type="Int32" Nullable="false" />
+          <Property Name="empID" Type="Int32" Nullable="false" />
+          <Property Name="dayRented" Type="DateTime" Precision="3" />
+          <Property Name="dayDue" Type="DateTime" Precision="3" />
+          <Property Name="returned" Type="Boolean" />
+          <Property Name="balanceDue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="video">
+          <Key>
+            <PropertyRef Name="videoID" />
+          </Key>
+          <Property Name="videoID" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="studio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="released" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sound" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="versions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="year" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="genre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="aspect" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="releaseDate" Type="DateTime" Precision="3" />
+          <Property Name="active" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="LacklusterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="dvds" EntityType="Self.dvd" />
+          <EntitySet Name="employees" EntityType="Self.employee" />
+          <EntitySet Name="rentals" EntityType="Self.rental" />
+          <EntitySet Name="videos" EntityType="Self.video" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LacklusterModelStoreContainer" CdmEntityContainer="LacklusterEntities">
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="LacklusterModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="custID" ColumnName="custID" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="streetAddress" ColumnName="streetAddress" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="dvdsOut" ColumnName="dvdsOut" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dvds">
+            <EntityTypeMapping TypeName="LacklusterModel.dvd">
+              <MappingFragment StoreEntitySet="dvd">
+                <ScalarProperty Name="videoID" ColumnName="videoID" />
+                <ScalarProperty Name="dvdID" ColumnName="dvdID" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="rented" ColumnName="rented" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="LacklusterModel.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="empID" ColumnName="empID" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="streetAddress" ColumnName="streetAddress" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="llv_password" ColumnName="llv_password" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="manager" ColumnName="manager" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rentals">
+            <EntityTypeMapping TypeName="LacklusterModel.rental">
+              <MappingFragment StoreEntitySet="rental">
+                <ScalarProperty Name="rentalID" ColumnName="rentalID" />
+                <ScalarProperty Name="custID" ColumnName="custID" />
+                <ScalarProperty Name="videoID" ColumnName="videoID" />
+                <ScalarProperty Name="dvdID" ColumnName="dvdID" />
+                <ScalarProperty Name="empID" ColumnName="empID" />
+                <ScalarProperty Name="dayRented" ColumnName="dayRented" />
+                <ScalarProperty Name="dayDue" ColumnName="dayDue" />
+                <ScalarProperty Name="returned" ColumnName="returned" />
+                <ScalarProperty Name="balanceDue" ColumnName="balanceDue" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="videos">
+            <EntityTypeMapping TypeName="LacklusterModel.video">
+              <MappingFragment StoreEntitySet="video">
+                <ScalarProperty Name="videoID" ColumnName="videoID" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="studio" ColumnName="studio" />
+                <ScalarProperty Name="released" ColumnName="released" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="sound" ColumnName="sound" />
+                <ScalarProperty Name="versions" ColumnName="versions" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="genre" ColumnName="genre" />
+                <ScalarProperty Name="aspect" ColumnName="aspect" />
+                <ScalarProperty Name="UPC" ColumnName="UPC" />
+                <ScalarProperty Name="releaseDate" ColumnName="releaseDate" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

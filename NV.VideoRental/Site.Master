@@ -70,7 +70,9 @@
     </header>
     <div id="body">
         <section class="content-wrapper main-content clear-fix">
-            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            <div class="container-fluid">
+                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            </div>
         </section>
     </div>
     <footer>
