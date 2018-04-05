@@ -17,12 +17,9 @@ namespace NV.VideoRental
         public int rentalID { get; set; }
         public int custID { get; set; }
         public int videoID { get; set; }
-        public int dvdID { get; set; }
         public int empID { get; set; }
         public Nullable<System.DateTime> dayRented { get; set; }
         public Nullable<System.DateTime> dayDue { get; set; }
         public Nullable<bool> returned { get; set; }
-        public Nullable<decimal> balanceDue { get; set; }
-        public Nullable<bool> active { get; set; }
     }
 }

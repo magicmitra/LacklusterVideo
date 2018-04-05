@@ -26,7 +26,6 @@ namespace NV.VideoRental
         }
     
         public virtual DbSet<customer> customers { get; set; }
-        public virtual DbSet<dvd> dvds { get; set; }
         public virtual DbSet<employee> employees { get; set; }
         public virtual DbSet<rental> rentals { get; set; }
         public virtual DbSet<video> videos { get; set; }

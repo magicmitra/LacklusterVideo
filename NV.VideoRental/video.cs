@@ -29,5 +29,6 @@ namespace NV.VideoRental
         public string UPC { get; set; }
         public Nullable<System.DateTime> releaseDate { get; set; }
         public Nullable<bool> active { get; set; }
+        public bool rented { get; set; }
     }
 }
