@@ -82,7 +82,7 @@ namespace NV.VideoRental.Rental
         {
             using (LacklusterEntities entity = new LacklusterEntities())
             {
-                List<video> videos = entity.videos.Where(v => v.rented == false).ToList();
+                List<video> videos = entity.videos.Where(v => v.rented == false).Take(20).ToList();
                 gvMovies.DataSource = videos;
                 gvMovies.DataBind();
 

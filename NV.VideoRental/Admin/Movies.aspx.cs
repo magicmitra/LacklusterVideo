@@ -59,7 +59,18 @@ namespace NV.VideoRental.Admin
                             vid.status = values[3];
                             vid.sound = values[4];
                             vid.versions = values[5];
-                            vid.price = Convert.ToDecimal(values[6]);
+
+                            if (String.IsNullOrWhiteSpace(values[6]))
+                                vid.price = null;
+                            else
+                            {
+                                decimal prc;
+                                if (Decimal.TryParse(values[6], out prc))
+                                    vid.price = prc;
+                                else
+                                    vid.price = null;
+                            }
+
                             vid.rating = values[7];
                             vid.year = values[8];
                             vid.genre = values[9];
