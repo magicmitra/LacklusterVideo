@@ -10,7 +10,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <asp:TextBox ID="txtCustomerInfo" runat="server" />
+                    <asp:TextBox ID="eFirstName" runat="server" />
                 </div>
             </div>
             <div class="row" style="padding-top: 25px;">
@@ -20,7 +20,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <asp:TextBox ID="TextBox1" runat="server" />
+                    <asp:TextBox ID="eLastName" runat="server" />
                 </div>
             </div>
             <div class="row" style="padding-top: 25px;">
@@ -30,7 +30,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <asp:TextBox ID="TextBox2" runat="server" />
+                    <asp:TextBox ID="eAddress" runat="server" />
                 </div>
             </div>
             <div class="row" style="padding-top: 25px;">
@@ -40,7 +40,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <asp:TextBox ID="TextBox3" runat="server" />
+                    <asp:TextBox ID="eCity" runat="server" />
                 </div>
             </div>
             <div class="row" style="padding-top: 25px;">
@@ -50,7 +50,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <asp:TextBox ID="TextBox4" runat="server" />
+                    <asp:TextBox ID="eState" runat="server" />
                 </div>
             </div>
             <div class="row" style="padding-top: 25px;">
@@ -60,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <asp:TextBox ID="TextBox5" runat="server" />
+                    <asp:TextBox ID="eZipCode" runat="server" />
                 </div>
             </div>
             <div class="row" style="padding-top: 25px;">
@@ -70,7 +70,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <asp:TextBox ID="TextBox6" runat="server" />
+                    <asp:TextBox ID="ePhoneNumber" runat="server" />
                 </div>
             </div>
             <div class="row" style="padding-top: 25px;">
@@ -80,7 +80,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <asp:TextBox ID="TextBox7" runat="server" />
+                    <asp:TextBox ID="eUsername" runat="server" />
                 </div>
             </div>
             <div class="row" style="padding-top: 25px;">
@@ -90,7 +90,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <asp:TextBox ID="TextBox8" runat="server" />
+                    <asp:TextBox ID="ePassword" runat="server" />
                 </div>
             </div>
             <div class="row" style="padding-top: 25px;">
@@ -100,11 +100,11 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                    <asp:CheckBox ID="eIsManager" runat="server" />
                 </div>
             </div>
             <div class="row">
-                    <asp:Button ID="Button10" Text="Add Employee!"  runat="server" />
+                    <asp:Button ID="eAddEmployee" Text="Add Employee!" OnClick="eAddEmployee_Click" runat="server" />
             </div>
     </asp:Panel>
 </asp:content>

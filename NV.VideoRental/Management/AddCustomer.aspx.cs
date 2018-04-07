@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,19 +17,30 @@ namespace NV.VideoRental.Management
 
         protected void cAddCustomer_Click(object sender, EventArgs e)
         {
-            String fName = cFirstName.Text.ToString();
-            System.Diagnostics.Debug.WriteLine(fName);
+            using (LacklusterEntities entity = new LacklusterEntities())
+            {
+                customer c = new customer();
+                c.firstName = cFirstName.Text.ToString();
+                c.lastName = cLastName.Text.ToString();
+                c.streetAddress = cAddress.Text.ToString();
+                c.city = cCity.Text.ToString();
+                c.state = cState.Text.ToString();
+                c.phone = cPhoneNumber.Text.ToString();
+                int zipFromString = 0;
+                int.TryParse(cZipCode.Text, out zipFromString);
 
-            String lName = cLastName.Text.ToString();
-            String address = cAddress.Text.ToString();
-            String city = cCity.Text.ToString();
-            String state = cState.Text.ToString();
-            String zip = cZipCode.Text.ToString();
-            String phone = cPhoneNumber.Text.ToString();
+                if (zipFromString != 0)
+                {
+                    c.zip = zipFromString;
+                }
+                else
+                {
+                    c.zip = 99999;
+                }
 
-            var db = Database.Open("database location...");
-            var insertCommand = "some query stuff...";
-            db.Execute(insertCommand, lName, address, city, state, zip, phone);
+                entity.customers.Add(c);
+                entity.SaveChanges();
+            }
         }
     }
 }
