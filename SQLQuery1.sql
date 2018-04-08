@@ -42,7 +42,7 @@ CREATE TABLE [dbo].[customer] (
 );
 
 CREATE TABLE [dbo].[employee] (
-    [empID]         INT           IDENTITY (1, 1) NOT NULL,
+    [empID]        INT           IDENTITY (1, 1) NOT NULL,
     [firstName]     VARCHAR (50)  NULL,
     [lastName]      VARCHAR (50)  NULL,
     [streetAddress] VARCHAR (MAX) NULL,
@@ -66,3 +66,5 @@ CREATE TABLE [dbo].[rental] (
     [dayDue]    DATETIME NULL,
     [returned]  BIT      NULL
 );
+
+

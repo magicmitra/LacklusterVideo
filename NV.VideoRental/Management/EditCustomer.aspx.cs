@@ -74,6 +74,7 @@ namespace NV.VideoRental.Management
         {
             using (LacklusterEntities entity = new LacklusterEntities())
             {
+                custID = Int32.Parse(Request.QueryString["ID"]);
                 customer cust = entity.customers.Where(c => c.custID == custID).Single();
                 cust.firstName = cFirstName.Text;
                 cust.lastName = cLastName.Text;
@@ -90,6 +91,7 @@ namespace NV.VideoRental.Management
 
                 entity.SaveChanges();
             }
+            Response.Redirect("EditCustomer.aspx");
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
