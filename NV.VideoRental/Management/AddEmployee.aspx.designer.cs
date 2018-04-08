@@ -7,150 +7,117 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NV.VideoRental.Rental {
+namespace NV.VideoRental.Management {
     
     
-    public partial class Rent {
+    public partial class AddEmployee {
         
         /// <summary>
-        /// pnlSelectCustomer control.
+        /// pnlAddEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSelectCustomer;
+        protected global::System.Web.UI.WebControls.Panel pnlAddEmployee;
         
         /// <summary>
-        /// txtCustomerInfo control.
+        /// eFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCustomerInfo;
+        protected global::System.Web.UI.WebControls.TextBox eFirstName;
         
         /// <summary>
-        /// Button1 control.
+        /// eLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox eLastName;
         
         /// <summary>
-        /// gvCustomers control.
+        /// eAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCustomers;
+        protected global::System.Web.UI.WebControls.TextBox eAddress;
         
         /// <summary>
-        /// pnlMovies control.
+        /// eCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlMovies;
+        protected global::System.Web.UI.WebControls.TextBox eCity;
         
         /// <summary>
-<<<<<<< HEAD
-        /// lblCustomerID control.
+        /// eState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerID;
+        protected global::System.Web.UI.WebControls.TextBox eState;
         
         /// <summary>
-        /// lblCustomerName control.
+        /// eZipCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerName;
+        protected global::System.Web.UI.WebControls.TextBox eZipCode;
         
         /// <summary>
-        /// lblBalance control.
+        /// ePhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBalance;
+        protected global::System.Web.UI.WebControls.TextBox ePhoneNumber;
         
         /// <summary>
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
-        /// txtMovieID control.
+        /// eUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMovieID;
+        protected global::System.Web.UI.WebControls.TextBox eUsername;
         
         /// <summary>
-        /// btnFindMovie control.
+        /// ePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFindMovie;
+        protected global::System.Web.UI.WebControls.TextBox ePassword;
         
         /// <summary>
-        /// gvMovies control.
+        /// eIsManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMovies;
-<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.CheckBox eIsManager;
         
         /// <summary>
-        /// gvRented control.
+        /// eAddEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRented;
-        
-        /// <summary>
-        /// lblTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotal;
-        
-        /// <summary>
-        /// hfTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfTotal;
-        
-        /// <summary>
-        /// btnComplete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnComplete;
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
+        protected global::System.Web.UI.WebControls.Button eAddEmployee;
     }
 }

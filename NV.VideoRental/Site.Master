@@ -63,6 +63,7 @@
                     <ul id="menu">
                         <li><a runat="server" href="~/Rental/Main.aspx">Rentals</a></li>
                         <li><a runat="server" href="~/Reports/Main.aspx">Reports</a></li>
+                        <li><a runat="server" href="~/Management/Main.aspx">Management</a></li>
                     </ul>
                 </nav>
             </div>
