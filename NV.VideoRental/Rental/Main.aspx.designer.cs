@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NV.VideoRental {
+namespace NV.VideoRental.Rental {
     
     
-    public partial class Customers {
+    public partial class Main {
     }
 }
