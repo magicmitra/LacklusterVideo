@@ -7,28 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NV.VideoRental.Rental {
+namespace NV.VideoRental.Management {
     
     
-    public partial class Rent {
+    public partial class EditEmployee {
         
         /// <summary>
-        /// pnlSelectCustomer control.
+        /// pnlSelectEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSelectCustomer;
+        protected global::System.Web.UI.WebControls.Panel pnlSelectEmployee;
         
         /// <summary>
-        /// txtCustomerInfo control.
+        /// txtEmployeeInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCustomerInfo;
+        protected global::System.Web.UI.WebControls.TextBox txtEmployeeInfo;
         
         /// <summary>
         /// Button1 control.
@@ -40,13 +40,13 @@ namespace NV.VideoRental.Rental {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// gvCustomers control.
+        /// gvEmployees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCustomers;
+        protected global::System.Web.UI.WebControls.GridView gvEmployees;
         
         /// <summary>
         /// pnlMovies control.
@@ -58,89 +58,112 @@ namespace NV.VideoRental.Rental {
         protected global::System.Web.UI.WebControls.Panel pnlMovies;
         
         /// <summary>
-<<<<<<< HEAD
-        /// lblCustomerID control.
+        /// lblEmployeeID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerID;
+        protected global::System.Web.UI.WebControls.Label lblEmployeeID;
         
         /// <summary>
-        /// lblCustomerName control.
+        /// lblEmployeeName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerName;
+        protected global::System.Web.UI.WebControls.Label lblEmployeeName;
         
         /// <summary>
-        /// lblBalance control.
+        /// eFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBalance;
+        protected global::System.Web.UI.WebControls.TextBox eFirstName;
         
         /// <summary>
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
-        /// txtMovieID control.
+        /// eLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMovieID;
+        protected global::System.Web.UI.WebControls.TextBox eLastName;
         
         /// <summary>
-        /// btnFindMovie control.
+        /// eAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFindMovie;
+        protected global::System.Web.UI.WebControls.TextBox eAddress;
         
         /// <summary>
-        /// gvMovies control.
+        /// eCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMovies;
-<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.TextBox eCity;
         
         /// <summary>
-        /// gvRented control.
+        /// eState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRented;
+        protected global::System.Web.UI.WebControls.TextBox eState;
         
         /// <summary>
-        /// lblTotal control.
+        /// eZipCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotal;
+        protected global::System.Web.UI.WebControls.TextBox eZipCode;
         
         /// <summary>
-        /// hfTotal control.
+        /// ePhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfTotal;
+        protected global::System.Web.UI.WebControls.TextBox ePhoneNumber;
+        
+        /// <summary>
+        /// eUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox eUsername;
+        
+        /// <summary>
+        /// ePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ePassword;
+        
+        /// <summary>
+        /// eIsManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox eIsManager;
         
         /// <summary>
         /// btnComplete control.
@@ -150,7 +173,5 @@ namespace NV.VideoRental.Rental {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnComplete;
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
     }
 }

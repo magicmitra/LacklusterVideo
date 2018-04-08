@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NV.VideoRental.Rental {
+namespace NV.VideoRental.Management {
     
     
-    public partial class Rent {
+    public partial class EditCustomer {
         
         /// <summary>
         /// pnlSelectCustomer control.
@@ -58,7 +58,6 @@ namespace NV.VideoRental.Rental {
         protected global::System.Web.UI.WebControls.Panel pnlMovies;
         
         /// <summary>
-<<<<<<< HEAD
         /// lblCustomerID control.
         /// </summary>
         /// <remarks>
@@ -77,70 +76,67 @@ namespace NV.VideoRental.Rental {
         protected global::System.Web.UI.WebControls.Label lblCustomerName;
         
         /// <summary>
-        /// lblBalance control.
+        /// cFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBalance;
+        protected global::System.Web.UI.WebControls.TextBox cFirstName;
         
         /// <summary>
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
-        /// txtMovieID control.
+        /// cLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMovieID;
+        protected global::System.Web.UI.WebControls.TextBox cLastName;
         
         /// <summary>
-        /// btnFindMovie control.
+        /// cAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFindMovie;
+        protected global::System.Web.UI.WebControls.TextBox cAddress;
         
         /// <summary>
-        /// gvMovies control.
+        /// cCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMovies;
-<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.TextBox cCity;
         
         /// <summary>
-        /// gvRented control.
+        /// cState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRented;
+        protected global::System.Web.UI.WebControls.TextBox cState;
         
         /// <summary>
-        /// lblTotal control.
+        /// cZipCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotal;
+        protected global::System.Web.UI.WebControls.TextBox cZipCode;
         
         /// <summary>
-        /// hfTotal control.
+        /// cPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfTotal;
+        protected global::System.Web.UI.WebControls.TextBox cPhoneNumber;
         
         /// <summary>
         /// btnComplete control.
@@ -150,7 +146,5 @@ namespace NV.VideoRental.Rental {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnComplete;
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
     }
 }
