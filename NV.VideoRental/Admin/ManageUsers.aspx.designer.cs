@@ -7,60 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NV.VideoRental.Account
-{
-
-
-    public partial class Manage
-    {
-
+namespace NV.VideoRental.Account {
+    
+    
+    public partial class Manage {
+        
         /// <summary>
-        /// successMessage control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder successMessage;
-
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        
         /// <summary>
-        /// setPassword control.
+        /// btnGetUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder setPassword;
-
+        protected global::System.Web.UI.WebControls.Button btnGetUser;
+        
         /// <summary>
-        /// password control.
+        /// gvEmployees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
-
-
-
-        /// <summary>
-        /// confirmPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox confirmPassword;
-
-        /// <summary>
-        /// changePassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder changePassword;
-
-
+        protected global::System.Web.UI.WebControls.GridView gvEmployees;
     }
 }
