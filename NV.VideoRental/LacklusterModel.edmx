@@ -4,11 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-<<<<<<< HEAD
     <Schema Namespace="LacklusterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-=======
-      <Schema Namespace="LacklusterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
         <EntityType Name="customer">
           <Key>
             <PropertyRef Name="custID" />
@@ -25,19 +21,6 @@
           <Property Name="dvdsOut" Type="int" />
           <Property Name="active" Type="bit" />
         </EntityType>
-<<<<<<< HEAD
-=======
-        <EntityType Name="dvd">
-          <Key>
-            <PropertyRef Name="videoID" />
-            <PropertyRef Name="dvdID" />
-          </Key>
-          <Property Name="videoID" Type="int" Nullable="false" />
-          <Property Name="dvdID" Type="int" Nullable="false" />
-          <Property Name="active" Type="bit" />
-          <Property Name="rented" Type="bit" />
-        </EntityType>
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
         <EntityType Name="employee">
           <Key>
             <PropertyRef Name="empID" />
@@ -60,35 +43,19 @@
           <Key>
             <PropertyRef Name="rentalID" />
           </Key>
-<<<<<<< HEAD
           <Property Name="rentalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="custID" Type="int" Nullable="false" />
           <Property Name="videoID" Type="int" Nullable="false" />
-=======
-          <Property Name="rentalID" Type="int" Nullable="false" />
-          <Property Name="custID" Type="int" Nullable="false" />
-          <Property Name="videoID" Type="int" Nullable="false" />
-          <Property Name="dvdID" Type="int" Nullable="false" />
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
           <Property Name="empID" Type="int" Nullable="false" />
           <Property Name="dayRented" Type="datetime" />
           <Property Name="dayDue" Type="datetime" />
           <Property Name="returned" Type="bit" />
-<<<<<<< HEAD
-=======
-          <Property Name="balanceDue" Type="money" />
-          <Property Name="active" Type="bit" />
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
         </EntityType>
         <EntityType Name="video">
           <Key>
             <PropertyRef Name="videoID" />
           </Key>
-<<<<<<< HEAD
           <Property Name="videoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-=======
-          <Property Name="videoID" Type="int" Nullable="false" />
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
           <Property Name="title" Type="varchar(max)" />
           <Property Name="studio" Type="varchar(max)" />
           <Property Name="released" Type="datetime" />
@@ -103,27 +70,15 @@
           <Property Name="UPC" Type="varchar" MaxLength="50" />
           <Property Name="releaseDate" Type="datetime" />
           <Property Name="active" Type="bit" />
-<<<<<<< HEAD
           <Property Name="rented" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="LacklusterModelStoreContainer">
           <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
-=======
-        </EntityType>
-        <EntityContainer Name="LacklusterModelStoreContainer">
-          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="dvd" EntityType="Self.dvd" Schema="dbo" store:Type="Tables" />
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
           <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="rental" EntityType="Self.rental" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="video" EntityType="Self.video" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-<<<<<<< HEAD
       </Schema></edmx:StorageModels>
-=======
-      </Schema>
-    </edmx:StorageModels>
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LacklusterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -143,19 +98,6 @@
           <Property Name="dvdsOut" Type="Int32" />
           <Property Name="active" Type="Boolean" />
         </EntityType>
-<<<<<<< HEAD
-=======
-        <EntityType Name="dvd">
-          <Key>
-            <PropertyRef Name="videoID" />
-            <PropertyRef Name="dvdID" />
-          </Key>
-          <Property Name="videoID" Type="Int32" Nullable="false" />
-          <Property Name="dvdID" Type="Int32" Nullable="false" />
-          <Property Name="active" Type="Boolean" />
-          <Property Name="rented" Type="Boolean" />
-        </EntityType>
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
         <EntityType Name="employee">
           <Key>
             <PropertyRef Name="empID" />
@@ -181,19 +123,10 @@
           <Property Name="rentalID" Type="Int32" Nullable="false" />
           <Property Name="custID" Type="Int32" Nullable="false" />
           <Property Name="videoID" Type="Int32" Nullable="false" />
-<<<<<<< HEAD
-=======
-          <Property Name="dvdID" Type="Int32" Nullable="false" />
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
           <Property Name="empID" Type="Int32" Nullable="false" />
           <Property Name="dayRented" Type="DateTime" Precision="3" />
           <Property Name="dayDue" Type="DateTime" Precision="3" />
           <Property Name="returned" Type="Boolean" />
-<<<<<<< HEAD
-=======
-          <Property Name="balanceDue" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="active" Type="Boolean" />
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
         </EntityType>
         <EntityType Name="video">
           <Key>
@@ -214,17 +147,10 @@
           <Property Name="UPC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="releaseDate" Type="DateTime" Precision="3" />
           <Property Name="active" Type="Boolean" />
-<<<<<<< HEAD
           <Property Name="rented" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityContainer Name="LacklusterEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="customers" EntityType="Self.customer" />
-=======
-        </EntityType>
-        <EntityContainer Name="LacklusterEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="customers" EntityType="Self.customer" />
-          <EntitySet Name="dvds" EntityType="Self.dvd" />
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
           <EntitySet Name="employees" EntityType="Self.employee" />
           <EntitySet Name="rentals" EntityType="Self.rental" />
           <EntitySet Name="videos" EntityType="Self.video" />
@@ -252,19 +178,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-<<<<<<< HEAD
-=======
-          <EntitySetMapping Name="dvds">
-            <EntityTypeMapping TypeName="LacklusterModel.dvd">
-              <MappingFragment StoreEntitySet="dvd">
-                <ScalarProperty Name="videoID" ColumnName="videoID" />
-                <ScalarProperty Name="dvdID" ColumnName="dvdID" />
-                <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="rented" ColumnName="rented" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
           <EntitySetMapping Name="employees">
             <EntityTypeMapping TypeName="LacklusterModel.employee">
               <MappingFragment StoreEntitySet="employee">
@@ -290,30 +203,17 @@
                 <ScalarProperty Name="rentalID" ColumnName="rentalID" />
                 <ScalarProperty Name="custID" ColumnName="custID" />
                 <ScalarProperty Name="videoID" ColumnName="videoID" />
-<<<<<<< HEAD
-=======
-                <ScalarProperty Name="dvdID" ColumnName="dvdID" />
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
                 <ScalarProperty Name="empID" ColumnName="empID" />
                 <ScalarProperty Name="dayRented" ColumnName="dayRented" />
                 <ScalarProperty Name="dayDue" ColumnName="dayDue" />
                 <ScalarProperty Name="returned" ColumnName="returned" />
-<<<<<<< HEAD
                 </MappingFragment>
-=======
-                <ScalarProperty Name="balanceDue" ColumnName="balanceDue" />
-                <ScalarProperty Name="active" ColumnName="active" />
-              </MappingFragment>
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="videos">
             <EntityTypeMapping TypeName="LacklusterModel.video">
               <MappingFragment StoreEntitySet="video">
-<<<<<<< HEAD
                 <ScalarProperty Name="rented" ColumnName="rented" />
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
                 <ScalarProperty Name="videoID" ColumnName="videoID" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="studio" ColumnName="studio" />

@@ -58,7 +58,6 @@ namespace NV.VideoRental.Rental {
         protected global::System.Web.UI.WebControls.Panel pnlMovies;
         
         /// <summary>
-<<<<<<< HEAD
         /// lblCustomerID control.
         /// </summary>
         /// <remarks>
@@ -86,8 +85,6 @@ namespace NV.VideoRental.Rental {
         protected global::System.Web.UI.WebControls.Label lblBalance;
         
         /// <summary>
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
         /// txtMovieID control.
         /// </summary>
         /// <remarks>
@@ -113,7 +110,6 @@ namespace NV.VideoRental.Rental {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvMovies;
-<<<<<<< HEAD
         
         /// <summary>
         /// gvRented control.
@@ -150,7 +146,5 @@ namespace NV.VideoRental.Rental {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnComplete;
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
     }
 }

@@ -227,21 +227,8 @@
       <DependentUpon>LacklusterModel.edmx</DependentUpon>
       <LastGenOutput>LacklusterModel.cs</LastGenOutput>
     </Content>
-<<<<<<< HEAD
     <Content Include="packages.config" />
     <Content Include="Rental\CompleteRental.aspx" />
-=======
-    <Content Include="Management\AddCustomer.aspx" />
-    <Content Include="Management\AddEmployee.aspx" />
-    <Content Include="Management\EditCustomer.aspx" />
-    <Content Include="Management\EditEmployee.aspx" />
-    <Content Include="Management\Main.aspx" />
-    <Content Include="Management\ManageCustomer.aspx" />
-    <Content Include="Management\ManageEmployee.aspx" />
-    <Content Include="Management\RemoveCustomer.aspx" />
-    <Content Include="Management\RemoveEmployee.aspx" />
-    <Content Include="packages.config" />
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -388,12 +375,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
-    <Compile Include="dvd.cs">
-      <DependentUpon>LacklusterModel.tt</DependentUpon>
-    </Compile>
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
     <Compile Include="employee.cs">
       <DependentUpon>LacklusterModel.tt</DependentUpon>
     </Compile>
@@ -415,77 +396,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LacklusterModel.edmx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
-    <Compile Include="Management\AddCustomer.aspx.cs">
-      <DependentUpon>AddCustomer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\AddCustomer.aspx.designer.cs">
-      <DependentUpon>AddCustomer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\AddEmployee.aspx.cs">
-      <DependentUpon>AddEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\AddEmployee.aspx.designer.cs">
-      <DependentUpon>AddEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\EditCustomer.aspx.cs">
-      <DependentUpon>EditCustomer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\EditCustomer.aspx.designer.cs">
-      <DependentUpon>EditCustomer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\EditEmployee.aspx.cs">
-      <DependentUpon>EditEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\EditEmployee.aspx.designer.cs">
-      <DependentUpon>EditEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\Main.aspx.cs">
-      <DependentUpon>Main.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\Main.aspx.designer.cs">
-      <DependentUpon>Main.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\ManageCustomer.aspx.cs">
-      <DependentUpon>ManageCustomer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\ManageCustomer.aspx.designer.cs">
-      <DependentUpon>ManageCustomer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\ManageEmployee.aspx.cs">
-      <DependentUpon>ManageEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\ManageEmployee.aspx.designer.cs">
-      <DependentUpon>ManageEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\RemoveCustomer.aspx.cs">
-      <DependentUpon>RemoveCustomer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\RemoveCustomer.aspx.designer.cs">
-      <DependentUpon>RemoveCustomer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\RemoveEmployee.aspx.cs">
-      <DependentUpon>RemoveEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Management\RemoveEmployee.aspx.designer.cs">
-      <DependentUpon>RemoveEmployee.aspx</DependentUpon>
-    </Compile>
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rental.cs">
       <DependentUpon>LacklusterModel.tt</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Rental\CompleteRental.aspx.cs">
       <DependentUpon>CompleteRental.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -493,8 +407,6 @@
     <Compile Include="Rental\CompleteRental.aspx.designer.cs">
       <DependentUpon>CompleteRental.aspx</DependentUpon>
     </Compile>
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
     <Compile Include="Rental\Main.aspx.cs">
       <DependentUpon>Main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -551,8 +463,6 @@
     <Compile Include="Reports\PopularMovies.aspx.designer.cs">
       <DependentUpon>PopularMovies.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Security\HashFunction.cs" />
-    <Compile Include="Security\SaltFunction.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

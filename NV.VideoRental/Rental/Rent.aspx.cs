@@ -19,7 +19,6 @@ namespace NV.VideoRental.Rental
         {
             if (!IsPostBack)
             {
-<<<<<<< HEAD
                 if (!String.IsNullOrEmpty(Request.QueryString["ID"]) && Int32.TryParse(Request.QueryString["ID"], out custID))
                 {
                     try
@@ -38,16 +37,6 @@ namespace NV.VideoRental.Rental
                     {
                         throw ex;
                         //Response.Redirect("Rent.aspx");
-=======
-                int custID;
-                if (!String.IsNullOrEmpty(Request.QueryString["ID"]) && Int32.TryParse(Request.QueryString["ID"], out custID))
-                {
-                    using (LacklusterEntities entity = new LacklusterEntities())
-                    {
-                        List<video> videos = entity.videos.ToList();
-                        gvMovies.DataSource = videos;
-                        gvMovies.DataBind();
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
                     }
 
                     pnlSelectCustomer.Visible = false;
@@ -81,7 +70,6 @@ namespace NV.VideoRental.Rental
 
         protected void btnFindMovie_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             using (LacklusterEntities entity = new LacklusterEntities())
             {
                 List<video> videos = entity.videos.Where(v => v.rented == false && (v.videoID.ToString() == txtMovieID.Text || v.title.Contains(txtMovieID.Text))).Take(20).ToList();
@@ -97,8 +85,6 @@ namespace NV.VideoRental.Rental
                 List<video> videos = entity.videos.Where(v => v.rented == false).Take(20).ToList();
                 gvMovies.DataSource = videos;
                 gvMovies.DataBind();
-=======
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
 
                 custID = Int32.Parse(Request.QueryString["ID"]);
 
