@@ -530,6 +530,8 @@
     <Compile Include="Reports\PopularMovies.aspx.designer.cs">
       <DependentUpon>PopularMovies.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Security\HashFunction.cs" />
+    <Compile Include="Security\SaltFunction.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
