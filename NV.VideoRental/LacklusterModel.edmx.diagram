@@ -6,10 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="2180b2b149a24e56ac0b9f59418a9def" Name="Diagram1">
         <EntityTypeShape EntityType="LacklusterModel.customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-<<<<<<< HEAD
-=======
-        <EntityTypeShape EntityType="LacklusterModel.dvd" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
->>>>>>> 09f44574a441a377f57292ab13b587dd8171e463
         <EntityTypeShape EntityType="LacklusterModel.employee" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LacklusterModel.rental" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LacklusterModel.video" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
