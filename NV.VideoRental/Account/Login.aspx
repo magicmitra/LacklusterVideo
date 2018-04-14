@@ -15,7 +15,7 @@
            </tr>
            <tr>
               <td>Password:</td>
-              <td><input id="txtUserPass" type="password" runat="server"></td>
+              <td><input id="txtUserPass" type="password" TextMode="Password" runat="server"></td>
               <td><ASP:RequiredFieldValidator ControlToValidate="txtUserPass"
                   Display="Static" ErrorMessage="*" runat="server" 
                   ID="vUserPass" />
