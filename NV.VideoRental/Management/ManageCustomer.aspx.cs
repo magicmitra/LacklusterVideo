@@ -13,5 +13,15 @@ namespace NV.VideoRental.Management
         {
 
         }
+
+        protected void btnEditCustomer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Management/EditCustomer.aspx");
+        }
+
+        protected void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Management/AddCustomer.aspx");
+        }
     }
 }

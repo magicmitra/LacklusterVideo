@@ -13,5 +13,15 @@ namespace NV.VideoRental.Rental
         {
 
         }
+
+        protected void btnRent_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Rental/Rent.aspx");
+        }
+
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Rental/Return.aspx");
+        }
     }
 }

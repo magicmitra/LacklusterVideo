@@ -13,5 +13,20 @@ namespace NV.VideoRental.Reports
         {
 
         }
+
+        protected void btnActiveCustomers_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reports/ActiveCustomers.aspx");
+        }
+
+        protected void btnLateMovies_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reports/LateMovies.aspx");
+        }
+
+        protected void btnPopularMovies_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reports/PopularMovies.aspx");
+        }
     }
 }

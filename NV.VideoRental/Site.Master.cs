@@ -67,7 +67,18 @@ namespace NV.VideoRental
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                FormsIdentity id = (FormsIdentity)HttpContext.Current.User.Identity;
+                FormsAuthenticationTicket ticket = id.Ticket;
 
+                if (ticket.UserData.ToLower() == "true")
+                    hdr.Style.Add(HtmlTextWriterStyle.BackgroundColor, "Orange");
+            }
+            catch(Exception)
+            {
+
+            }
         }
     }
 }

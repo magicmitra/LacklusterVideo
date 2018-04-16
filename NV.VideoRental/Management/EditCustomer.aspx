@@ -46,8 +46,13 @@
             </div>
         </div>
         <div class="row" style="padding-top: 25px;">
+                <div class="col-md-2">
+                    <h3>First Name</h3>
+                </div>
                 <div class="col-md-4">
-                    <h3>Enter Customer First Name</h3>
+                    <ASP:RequiredFieldValidator ControlToValidate="cFirstName"
+                            Display="Static" ErrorMessage="*Required" ForeColor="Red" runat="server" 
+                            ID="rfvFirst" />
                 </div>
             </div>
             <div class="row">
@@ -55,9 +60,14 @@
                     <asp:TextBox ID="cFirstName" runat="server" />
                 </div>
             </div>
-            <div class="row" style="padding-top: 25px;">
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-md-2">
+                    <h3>Last Name</h3>
+                </div>
                 <div class="col-md-4">
-                    <h3>Enter Customer Last Name</h3>
+                    <ASP:RequiredFieldValidator ControlToValidate="cLastName"
+                            Display="Static" ErrorMessage="*Required" ForeColor="Red" runat="server" 
+                            ID="rfvLast" />
                 </div>
             </div>
             <div class="row">
@@ -65,9 +75,14 @@
                     <asp:TextBox ID="cLastName" runat="server" />
                 </div>
             </div>
-            <div class="row" style="padding-top: 25px;">
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-md-2">
+                    <h3>Address</h3>
+                </div>
                 <div class="col-md-4">
-                    <h3>Enter Customer Address</h3>
+                    <ASP:RequiredFieldValidator ControlToValidate="cAddress"
+                            Display="Static" ErrorMessage="*Required" ForeColor="Red" runat="server" 
+                            ID="rfvAddress" />
                 </div>
             </div>
             <div class="row">
@@ -75,9 +90,14 @@
                     <asp:TextBox ID="cAddress" runat="server" />
                 </div>
             </div>
-            <div class="row" style="padding-top: 25px;">
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-md-2">
+                    <h3>City</h3>
+                </div>
                 <div class="col-md-4">
-                    <h3>Enter Customer City</h3>
+                    <ASP:RequiredFieldValidator ControlToValidate="cCity"
+                            Display="Static" ErrorMessage="*Required" ForeColor="Red" runat="server" 
+                            ID="rfvCity" />
                 </div>
             </div>
             <div class="row">
@@ -85,9 +105,14 @@
                     <asp:TextBox ID="cCity" runat="server" />
                 </div>
             </div>
-            <div class="row" style="padding-top: 25px;">
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-md-2">
+                    <h3>State</h3>
+                </div>
                 <div class="col-md-4">
-                    <h3>Enter Customer State</h3>
+                    <ASP:RequiredFieldValidator ControlToValidate="cState"
+                            Display="Static" ErrorMessage="*Required" ForeColor="Red" runat="server" 
+                            ID="rfvState" />
                 </div>
             </div>
             <div class="row">
@@ -95,9 +120,14 @@
                     <asp:TextBox ID="cState" runat="server" />
                 </div>
             </div>
-            <div class="row" style="padding-top: 25px;">
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-md-2">
+                    <h3>Zip Code</h3>
+                </div>
                 <div class="col-md-4">
-                    <h3>Enter Customer Zip Code</h3>
+                    <ASP:RequiredFieldValidator ControlToValidate="cZipCode"
+                            Display="Static" ErrorMessage="*Required" ForeColor="Red" runat="server" 
+                            ID="rfvZip" />
                 </div>
             </div>
             <div class="row">
@@ -105,9 +135,14 @@
                     <asp:TextBox ID="cZipCode" runat="server" />
                 </div>
             </div>
-            <div class="row" style="padding-top: 25px;">
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-md-2">
+                    <h3>Phone Number</h3>
+                </div>
                 <div class="col-md-4">
-                    <h3>Enter Customer Phone Number</h3>
+                    <ASP:RequiredFieldValidator ControlToValidate="cPhoneNumber"
+                            Display="Static" ErrorMessage="*Required" ForeColor="Red" runat="server" 
+                            ID="rfvPhone" />
                 </div>
             </div>
             <div class="row">
@@ -121,6 +156,7 @@
             </div>
             <div class="col-md-2">
                 <asp:Button ID="btnComplete" Text="Confirm Edit!" OnClick="btnComplete_Click" ValidateRequestMode="Enabled" runat="server" /> 
+                <asp:Button ID="btnDelete" Text="Delete" OnClick="btnDelete_Click" ValidateRequestMode="Disabled" runat="server" /> 
             </div>
         </div>
     </asp:Panel>

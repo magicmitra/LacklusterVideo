@@ -20,11 +20,29 @@ namespace NV.VideoRental.Management
                     {
                         using (LacklusterEntities entity = new LacklusterEntities())
                         {
-                            reloadMovies();
-
                             customer cust = entity.customers.Where(c => c.custID == custID).Single();
                             lblCustomerID.Text = cust.custID.ToString();
                             lblCustomerName.Text = cust.firstName + " " + cust.lastName;
+                            cFirstName.Text = cust.firstName;
+                            cLastName.Text = cust.lastName;
+                            cAddress.Text = cust.streetAddress;
+                            cCity.Text = cust.city;
+                            cState.Text = cust.state;
+
+                            int zipFromString = 0;
+                            int.TryParse(cZipCode.Text, out zipFromString);
+
+                            if (zipFromString != 0)
+                            {
+                                cust.zip = zipFromString;
+                            }
+                            else
+                            {
+                                cust.zip = 99999;
+                            }
+
+                            cPhoneNumber.Text = cust.phone;
+
                         }
                     }
                     catch (Exception ex)
@@ -38,12 +56,7 @@ namespace NV.VideoRental.Management
                 }
                 else
                 {
-                    using (LacklusterEntities entity = new LacklusterEntities())
-                    {
-                        List<customer> customers = entity.customers.ToList();
-                        gvCustomers.DataSource = customers;
-                        gvCustomers.DataBind();
-                    }
+                    reloadCust();
 
                     pnlSelectCustomer.Visible = true;
                     pnlMovies.Visible = false;
@@ -51,11 +64,13 @@ namespace NV.VideoRental.Management
             }
         }
 
-        private void reloadMovies()
+        private void reloadCust()
         {
             using (LacklusterEntities entity = new LacklusterEntities())
             {
-                custID = Int32.Parse(Request.QueryString["ID"]);
+                List<customer> customers = entity.customers.Where(c => c.active == true).ToList();
+                gvCustomers.DataSource = customers;
+                gvCustomers.DataBind();
             }
         }
 
@@ -64,7 +79,7 @@ namespace NV.VideoRental.Management
         {
             using (LacklusterEntities entity = new LacklusterEntities())
             {
-                List<customer> customers = entity.customers.Where(c => c.custID.ToString() == txtCustomerInfo.Text || c.lastName == txtCustomerInfo.Text).ToList();
+                List<customer> customers = entity.customers.Where(c => (c.custID.ToString() == txtCustomerInfo.Text || c.lastName == txtCustomerInfo.Text) && c.active == true).ToList();
                 gvCustomers.DataSource = customers;
                 gvCustomers.DataBind();
             }
@@ -94,16 +109,19 @@ namespace NV.VideoRental.Management
             Response.Redirect("EditCustomer.aspx");
         }
 
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void btnDelete_Click(object sender, EventArgs e)
         {
-            if (e.CommandName == "Select")
+            using (LacklusterEntities entity = new LacklusterEntities())
             {
                 custID = Int32.Parse(Request.QueryString["ID"]);
-                //Determine the RowIndex of the Row whose Button was clicked.
-                int vID = Int32.Parse(e.CommandArgument.ToString());
+                customer cust = entity.customers.Where(c => c.custID == custID).Single();
 
-                reloadMovies();
+                cust.active = false;
+
+                entity.SaveChanges();
             }
+
+            Response.Redirect("EditCustomer.aspx");
         }
     }
 }

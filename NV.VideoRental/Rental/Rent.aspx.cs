@@ -46,7 +46,7 @@ namespace NV.VideoRental.Rental
                 {
                     using (LacklusterEntities entity = new LacklusterEntities())
                     {
-                        List<customer> customers = entity.customers.ToList();
+                        List<customer> customers = entity.customers.Where(c => c.active == true).ToList();
                         gvCustomers.DataSource = customers;
                         gvCustomers.DataBind();
                     }
@@ -61,7 +61,7 @@ namespace NV.VideoRental.Rental
         {
             using (LacklusterEntities entity = new LacklusterEntities())
             {
-                List<customer> customers = entity.customers.Where(c => c.custID.ToString() == txtCustomerInfo.Text || c.lastName == txtCustomerInfo.Text).ToList();
+                List<customer> customers = entity.customers.Where(c => (c.custID.ToString() == txtCustomerInfo.Text || c.lastName == txtCustomerInfo.Text) && c.active == true).ToList();
                 gvCustomers.DataSource = customers;
                 gvCustomers.DataBind();
 
