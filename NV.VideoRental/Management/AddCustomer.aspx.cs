@@ -38,9 +38,13 @@ namespace NV.VideoRental.Management
                     c.zip = 99999;
                 }
 
+                c.active = true;
+
                 entity.customers.Add(c);
                 entity.SaveChanges();
             }
+
+            Response.Redirect("~/Management/ManageCustomer.aspx");
         }
     }
 }

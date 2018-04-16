@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using SaltFunction;
 using HashFunction;
+using SaltFunction;
 
 
 namespace NV.VideoRental.Management
@@ -14,19 +15,23 @@ namespace NV.VideoRental.Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            FormsIdentity id = (FormsIdentity)HttpContext.Current.User.Identity;
+            FormsAuthenticationTicket ticket = id.Ticket;
+
+            if (ticket.UserData.ToLower() == "false")
+                Response.Redirect("~/Default.aspx");
 
         }
 
         protected void eAddEmployee_Click(object sender, EventArgs e)
         {
+            string lookupSalt = null;
+            string passwordPlusSalt = null;
+
             using (LacklusterEntities entity = new LacklusterEntities())
             {
                 SaltGenerator salt = new SaltGenerator();
-                HasherOfPasswords hasher = new HasherOfPasswords();
                 employee em = new employee();
-                string passVariable = ePassword.Text.ToString();
-                string saltStr = salt.SaltMe(em.firstName, em.lastName);
-                string saltedPass = passVariable + saltStr;
                 em.firstName = eFirstName.Text.ToString();
                 em.lastName = eLastName.Text.ToString();
                 em.streetAddress = eAddress.Text.ToString();
@@ -34,8 +39,13 @@ namespace NV.VideoRental.Management
                 em.state = eState.Text.ToString();
                 em.phone = ePhoneNumber.Text.ToString();
                 em.userName = eUsername.Text.ToString();
-                em.llv_password = hasher.HashPassword(saltedPass);
-                em.salt = saltStr;
+
+                lookupSalt = salt.SaltMe(em.firstName, em.lastName);
+                em.salt = lookupSalt;
+
+                em.llv_password = ePassword.Text;
+                eUsername.Text = passwordPlusSalt;
+
                 em.manager = eIsManager.Checked;
                 em.active = true;
 
@@ -54,6 +64,8 @@ namespace NV.VideoRental.Management
                 entity.employees.Add(em);
                 entity.SaveChanges();
             }
+
+            Response.Redirect("~/Management/ManageEmployee.aspx");
         }
     }
 }

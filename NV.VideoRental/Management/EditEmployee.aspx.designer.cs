@@ -49,13 +49,13 @@ namespace NV.VideoRental.Management {
         protected global::System.Web.UI.WebControls.GridView gvEmployees;
         
         /// <summary>
-        /// pnlMovies control.
+        /// pnlEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlMovies;
+        protected global::System.Web.UI.WebControls.Panel pnlEdit;
         
         /// <summary>
         /// lblEmployeeID control.
@@ -76,6 +76,15 @@ namespace NV.VideoRental.Management {
         protected global::System.Web.UI.WebControls.Label lblEmployeeName;
         
         /// <summary>
+        /// rfvFirst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirst;
+        
+        /// <summary>
         /// eFirstName control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace NV.VideoRental.Management {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox eFirstName;
+        
+        /// <summary>
+        /// rfvLast control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLast;
         
         /// <summary>
         /// eLastName control.
@@ -94,6 +112,15 @@ namespace NV.VideoRental.Management {
         protected global::System.Web.UI.WebControls.TextBox eLastName;
         
         /// <summary>
+        /// rfvAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAddress;
+        
+        /// <summary>
         /// eAddress control.
         /// </summary>
         /// <remarks>
@@ -101,6 +128,15 @@ namespace NV.VideoRental.Management {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox eAddress;
+        
+        /// <summary>
+        /// rfvCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCity;
         
         /// <summary>
         /// eCity control.
@@ -112,6 +148,15 @@ namespace NV.VideoRental.Management {
         protected global::System.Web.UI.WebControls.TextBox eCity;
         
         /// <summary>
+        /// rfvState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvState;
+        
+        /// <summary>
         /// eState control.
         /// </summary>
         /// <remarks>
@@ -119,6 +164,15 @@ namespace NV.VideoRental.Management {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox eState;
+        
+        /// <summary>
+        /// rfvZip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvZip;
         
         /// <summary>
         /// eZipCode control.
@@ -130,6 +184,15 @@ namespace NV.VideoRental.Management {
         protected global::System.Web.UI.WebControls.TextBox eZipCode;
         
         /// <summary>
+        /// rfvPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPhone;
+        
+        /// <summary>
         /// ePhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -139,13 +202,13 @@ namespace NV.VideoRental.Management {
         protected global::System.Web.UI.WebControls.TextBox ePhoneNumber;
         
         /// <summary>
-        /// eUsername control.
+        /// rfvPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox eUsername;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
         
         /// <summary>
         /// ePassword control.
@@ -173,5 +236,14 @@ namespace NV.VideoRental.Management {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnComplete;
+        
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
     }
 }

@@ -11,5 +11,32 @@ namespace NV.VideoRental.Reports {
     
     
     public partial class Main {
+        
+        /// <summary>
+        /// btnActiveCustomers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnActiveCustomers;
+        
+        /// <summary>
+        /// btnLateMovies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLateMovies;
+        
+        /// <summary>
+        /// btnPopularMovies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPopularMovies;
     }
 }

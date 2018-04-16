@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,6 +13,12 @@ namespace NV.VideoRental.Management
         private int empID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            FormsIdentity id = (FormsIdentity)HttpContext.Current.User.Identity;
+            FormsAuthenticationTicket ticket = id.Ticket;
+
+            if (ticket.UserData.ToLower() == "false")
+                Response.Redirect("~/Default.aspx");
+
             if (!IsPostBack)
             {
                 if (!String.IsNullOrEmpty(Request.QueryString["ID"]) && Int32.TryParse(Request.QueryString["ID"], out empID))
@@ -20,11 +27,29 @@ namespace NV.VideoRental.Management
                     {
                         using (LacklusterEntities entity = new LacklusterEntities())
                         {
-                            reloadMovies();
-
                             employee emp = entity.employees.Where(c => c.empID == empID).Single();
                             lblEmployeeID.Text = emp.empID.ToString();
                             lblEmployeeName.Text = emp.firstName + " " + emp.lastName;
+                            eFirstName.Text = emp.firstName;
+                            eLastName.Text = emp.lastName;
+                            eAddress.Text = emp.streetAddress;
+                            eCity.Text = emp.city;
+                            eState.Text = emp.state;
+
+                            int zipFromString = 0;
+                            int.TryParse(eZipCode.Text, out zipFromString);
+
+                            if (zipFromString != 0)
+                            {
+                                emp.zip = zipFromString;
+                            }
+                            else
+                            {
+                                emp.zip = 99999;
+                            }
+
+                            ePhoneNumber.Text = emp.phone;
+                            eIsManager.Checked = emp.manager.HasValue ? emp.manager.Value : false;
                         }
                     }
                     catch (Exception ex)
@@ -34,28 +59,25 @@ namespace NV.VideoRental.Management
                     }
 
                     pnlSelectEmployee.Visible = false;
-                    pnlMovies.Visible = true;
+                    pnlEdit.Visible = true;
                 }
                 else
                 {
-                    using (LacklusterEntities entity = new LacklusterEntities())
-                    {
-                        List<employee> Employees = entity.employees.ToList();
-                        gvEmployees.DataSource = Employees;
-                        gvEmployees.DataBind();
-                    }
+                    reloadEmployees();
 
                     pnlSelectEmployee.Visible = true;
-                    pnlMovies.Visible = false;
+                    pnlEdit.Visible = false;
                 }
             }
         }
 
-        private void reloadMovies()
+        private void reloadEmployees()
         {
             using (LacklusterEntities entity = new LacklusterEntities())
             {
-                empID = Int32.Parse(Request.QueryString["ID"]);
+                List<employee> Employees = entity.employees.Where(e => e.active == true).ToList();
+                gvEmployees.DataSource = Employees;
+                gvEmployees.DataBind();
             }
         }
 
@@ -64,7 +86,7 @@ namespace NV.VideoRental.Management
         {
             using (LacklusterEntities entity = new LacklusterEntities())
             {
-                List<employee> employees = entity.employees.Where(em => em.empID.ToString() == txtEmployeeInfo.Text || em.lastName == txtEmployeeInfo.Text).ToList();
+                List<employee> employees = entity.employees.Where(em => (em.empID.ToString() == txtEmployeeInfo.Text || em.lastName == txtEmployeeInfo.Text) && em.active == true).ToList();
                 gvEmployees.DataSource = employees;
                 gvEmployees.DataBind();
             }
@@ -89,24 +111,27 @@ namespace NV.VideoRental.Management
                     emp.zip = zipFromString;
                 }
                 emp.phone = ePhoneNumber.Text;
-                emp.userName = eUsername.Text;
                 emp.llv_password = ePassword.Text;
                 emp.manager = eIsManager.Checked;
                 entity.SaveChanges();
             }
+
             Response.Redirect("EditEmployee.aspx");
         }
 
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void btnDelete_Click(object sender, EventArgs e)
         {
-            if (e.CommandName == "Select")
+            using (LacklusterEntities entity = new LacklusterEntities())
             {
                 empID = Int32.Parse(Request.QueryString["ID"]);
-                //Determine the RowIndex of the Row whose Button was clicked.
-                int vID = Int32.Parse(e.CommandArgument.ToString());
+                employee emp = entity.employees.Where(em => em.empID == empID).Single();
 
-                reloadMovies();
+                emp.active = false;
+
+                entity.SaveChanges();
             }
+
+            Response.Redirect("EditEmployee.aspx");
         }
     }
 }
