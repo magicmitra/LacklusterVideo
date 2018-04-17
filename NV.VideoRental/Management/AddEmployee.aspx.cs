@@ -25,12 +25,17 @@ namespace NV.VideoRental.Management
 
         protected void eAddEmployee_Click(object sender, EventArgs e)
         {
+            // Edited 4/16/18:
+            // passwordPlusSalt is input to Hash algorithm and the output
+            // is saved to the DB
             string lookupSalt = null;
             string passwordPlusSalt = null;
+            string passwordString = ePassword.Text;
 
             using (LacklusterEntities entity = new LacklusterEntities())
             {
                 SaltGenerator salt = new SaltGenerator();
+                HasherOfPasswords hash = new HasherOfPasswords();
                 employee em = new employee();
                 em.firstName = eFirstName.Text.ToString();
                 em.lastName = eLastName.Text.ToString();
@@ -41,10 +46,12 @@ namespace NV.VideoRental.Management
                 em.userName = eUsername.Text.ToString();
 
                 lookupSalt = salt.SaltMe(em.firstName, em.lastName);
+                passwordPlusSalt = passwordString + lookupSalt;
+                em.llv_password = hash.HashPassword(passwordPlusSalt);
                 em.salt = lookupSalt;
 
-                em.llv_password = ePassword.Text;
-                eUsername.Text = passwordPlusSalt;
+                //em.llv_password = ePassword.Text;
+                //eUsername.Text = passwordPlusSalt;
 
                 em.manager = eIsManager.Checked;
                 em.active = true;
