@@ -7,7 +7,7 @@
     <section id="loginForm">
         <table>
            <tr>
-              <td>Email:</td>
+              <td>Username:</td>
               <td><asp:TextBox ID="txtUser" runat="server" /></td>
               <td><ASP:RequiredFieldValidator ControlToValidate="txtUser"
                    Display="Static" ErrorMessage="*" runat="server" 
