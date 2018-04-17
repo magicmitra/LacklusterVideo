@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using System.Web.Security;
 using System.Data;
 using System.Configuration;
+using SaltFunction;
+using HashFunction;
 
 namespace NV.VideoRental.Account
 {
@@ -45,14 +47,13 @@ namespace NV.VideoRental.Account
         private bool ValidateUser(string userName, string passWord)
         {
 
-            // Try this code for now. If it works, everything below it should be ignored
-            // because of the return clause
+            /*
             if((0 == string.Compare(userName, "Admin", true)) && (0 == string.Compare(passWord, "Admin", true)))
             {
                 return true;
                 // should allow login now.  
             }
-
+            */
             // 4/3/18: Added variables cmd2(SqlCommand), lookupSalt(string)
             // and passwordPlusSalt(string)
 
@@ -145,21 +146,16 @@ namespace NV.VideoRental.Account
              * Input------->Hash Function-------->Output(returned)
              */
             passwordPlusSalt = passWord + lookupSalt;
-
-            /* Whenever the connection to Security folder has been established
-             * HasherOfPasswords hasher = new HasherOfPAsswords();
-             * passWord = hasher.HashPassword(passWordPlusSalt);
-             * NOTE: UNCOMMENT THIS PART ONCE CONNECTIONS HAVE BEEN MADE
-             */
+            HasherOfPasswords hasher = new HasherOfPasswords();
+            passWord = hasher.HashPassword(passwordPlusSalt);
+             
             
 
             // Compare lookupPassword and input passWord, using a case-sensitive comparison.
             // Note about this atrocious segment of code: 
             // For the demo, Sidener can just enter "Admin" for both usernames and password, not case sensitive.
             // Reminder to delete the code that allows "Admin" to login 
-            return ((0 == string.Compare(userName, "Admin", true) && 
-                    (0 == string.Compare(passWord, "Admin", true))) ||
-                    (0 == string.Compare(lookupPassword, passWord, false)));
+            return (0 == string.Compare(lookupPassword, passWord, false));
 
         }
 
