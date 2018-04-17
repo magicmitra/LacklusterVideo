@@ -15,7 +15,7 @@
            </tr>
            <tr>
               <td>Password:</td>
-              <td><asp:TextBox id="txtPass" runat="server" /></td>
+              <td><asp:TextBox id="txtPass" TextMode="Password" runat="server" /></td>
               <td><ASP:RequiredFieldValidator ControlToValidate="txtPass"
                   Display="Static" ErrorMessage="*" runat="server" 
                   ID="vUserPass" />
