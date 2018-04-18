@@ -13,7 +13,8 @@ using System.Text.RegularExpressions;
 namespace FormValidator
 {
     public class FormValidator
-    {
+    { 
+
         public FormValidator()
         {
             // default constructor
@@ -51,7 +52,7 @@ namespace FormValidator
         {
             bool returnedValue = false;
 
-            // code in here TODO 
+            // TODO
 
             return returnedValue;
         }
