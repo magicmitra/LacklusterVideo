@@ -2,9 +2,16 @@
  * validating forms. This will have methods to validate:
  * 1. phone number
  * 2. valid State un the US
+ * 3. valid Zip Code in US
  * 
- * There will be more
+ * How to Use:
+ * 1. Create FormValidatorClass() object
+ * 2. Call IsValidPhone(number)
+ * 3. Call IsValidState(state_initials)
+ * 4. Call IsValidZip(zipcode)
  * 
+ * All methods return TRUE if entries are valid
+ * FALSE otherwise. 
  */
 
 using System;
@@ -55,10 +62,39 @@ namespace FormValidator
         {
             bool returnedValue = false;
 
-            StateHashTableClass table = new StateHashTableClass();
-            if(table.ContainsKey(state))
+            try
             {
-                returnedValue = true;
+
+                StateHashTableClass table = new StateHashTableClass();
+                if (table.ContainsKey(state))
+                {
+                    returnedValue = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine("Exception: " + ex.Message);
+            }
+
+            return returnedValue;
+        }
+
+        // checks for a valid Zip Code
+        public bool IsValidZip(string zip)
+        {
+            bool returnedValue = false;
+            string USZipRegex = @"^\d{5}(?:[-\s]\d{4})?$";
+
+            try
+            {
+                if(Regex.Match(zip, USZipRegex).Success)
+                {
+                    returnedValue = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine("Exception: " + ex.Message);
             }
 
             return returnedValue;
