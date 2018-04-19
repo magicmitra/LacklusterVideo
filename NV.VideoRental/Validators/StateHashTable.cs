@@ -1,17 +1,19 @@
 ﻿/* Hash table of United States states in 
  * key:value pairs
- * 
+ * NOTE: This needs to be initialized at startup ONCE.
+ * So that this hash table will not have to built everytime
+ * a state needs to be validated.
  */
 
 using System.Collections;
 
 namespace StateHashTable
 {
-    public class StateHashTable
+    public class StateHashTableClass
     {
         protected Hashtable states;
 
-        public StateHashTable()
+        public StateHashTableClass()
         {
             // constructor will populate hashtable
             states = new Hashtable();
