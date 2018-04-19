@@ -8,7 +8,7 @@
  * We can add more fields to participate in the criteria
  * if necessary.
  * HOW TO USE:
- * 1. Create a DuplicateChecker instance
+ * 1. Create a DuplicateCheckerClass instance
  * 2. Invoke member function/method called 'AlreadyExists' 
  *    -> AlreadyExists is OVERLOADED:
  *    -> 1st version is for employees and takes 4 arguments in order:
@@ -33,14 +33,14 @@ using System.Data;
 
 namespace DuplicateChecker
 {
-    public class DuplicateChecker
+    public class DuplicateCheckerClass
     {
         // protected variable, value will 
         // be populated through Database
         protected string usernameDB = null;
         protected string addressDB = null;
 
-        public DuplicateChecker()
+        public DuplicateCheckerClass()
         {
             // default constructor
         }

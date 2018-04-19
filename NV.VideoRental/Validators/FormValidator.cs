@@ -12,10 +12,10 @@ using System.Text.RegularExpressions;
 
 namespace FormValidator
 {
-    public class FormValidator
+    public class FormValidatorClass
     { 
 
-        public FormValidator()
+        public FormValidatorClass()
         {
             // default constructor
         }
