@@ -9,6 +9,7 @@
 
 using System;
 using System.Text.RegularExpressions;
+using StateHashTable;
 
 namespace FormValidator
 {
@@ -48,11 +49,17 @@ namespace FormValidator
         }
 
         // checks if state is valid 
+        // Right now, this this Hash table will be built everytime 
+        // a validation is about to occur. 
         public bool IsValidState(string state)
         {
             bool returnedValue = false;
 
-            // TODO
+            StateHashTableClass table = new StateHashTableClass();
+            if(table.ContainsKey(state))
+            {
+                returnedValue = true;
+            }
 
             return returnedValue;
         }

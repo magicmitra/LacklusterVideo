@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace StateHashTable
 {
-    public class StateHashTableClass
+    public class StateHashTableClass : Hashtable 
     {
         protected Hashtable states;
 
