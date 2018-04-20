@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SaltFunction;
+using HashFunction;
+using FormValidator;
+using DuplicateChecker;
 
 namespace NV.VideoRental.Management
 {
@@ -94,6 +98,16 @@ namespace NV.VideoRental.Management
 
         protected void btnComplete_Click(object sender, EventArgs e)
         {
+            string lookupSalt = null;
+            string passwordPlusSalt = null;
+            string passwordString = ePassword.Text.ToString();
+            
+            // TODO: Form validator code
+            SaltGenerator salt = new SaltGenerator();
+            HasherOfPasswords hash = new HasherOfPasswords();
+            FormValidatorClass fv = new FormValidatorClass();
+            DuplicateCheckerClass dc = new DuplicateCheckerClass();
+
             using (LacklusterEntities entity = new LacklusterEntities())
             {
                 empID = Int32.Parse(Request.QueryString["ID"]);
