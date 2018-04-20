@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using HashFunction;
 using SaltFunction;
+using FormValidator;
+using DuplicateChecker;
 
 
 namespace NV.VideoRental.Management
@@ -25,17 +27,35 @@ namespace NV.VideoRental.Management
 
         protected void eAddEmployee_Click(object sender, EventArgs e)
         {
-            // Edited 4/16/18:
-            // passwordPlusSalt is input to Hash algorithm and the output
-            // is saved to the DB
+            /* Edited 4/16/18:
+             * passwordPlusSalt is input to Hash algorithm and the output
+             * is saved to the DB
+             */
             string lookupSalt = null;
             string passwordPlusSalt = null;
             string passwordString = ePassword.Text;
 
+            /* TODO
+             * These variables will be used to check for validation.
+             * inputs will be stored in here and checked for validation
+             * before being stored as a DB entry.
+             * 
+             */
+            string firstNameStr = eFirstName.Text.ToString();
+            string lastNameStr = eLastName.Text.ToString();
+            string stAddressStr = eAddress.Text.ToString();
+            string stateStr = eState.Text.ToString();
+            string phoneStr = ePhoneNumber.Text.ToString();
+            string userNameStr = eUsername.Text.ToString();
+
+            // transfer these components to the outside
+            SaltGenerator salt = new SaltGenerator();
+            HasherOfPasswords hash = new HasherOfPasswords();
+            FormValidatorClass fv = new FormValidatorClass();
+            DuplicateCheckerClass dc = new DuplicateCheckerClass();
+
             using (LacklusterEntities entity = new LacklusterEntities())
             {
-                SaltGenerator salt = new SaltGenerator();
-                HasherOfPasswords hash = new HasherOfPasswords();
                 employee em = new employee();
                 em.firstName = eFirstName.Text.ToString();
                 em.lastName = eLastName.Text.ToString();
