@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FormValidator;
+using DuplicateChecker;
 
 namespace NV.VideoRental.Management
 {
@@ -17,6 +19,11 @@ namespace NV.VideoRental.Management
 
         protected void cAddCustomer_Click(object sender, EventArgs e)
         {
+            // TODO:
+            // Add some code validation, WORK IN PROGRESS 
+            FormValidatorClass fv = new FormValidatorClass();
+            DuplicateCheckerClass dc = new DuplicateCheckerClass();
+
             using (LacklusterEntities entity = new LacklusterEntities())
             {
                 customer c = new customer();
