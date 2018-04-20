@@ -65,7 +65,7 @@
             </div>
             <div class="row" style="padding-top: 10px;">
                 <div class="col-md-2">
-                    <h3>State</h3>
+                    <h3>State Initial(Ex. IL; DC included)</h3>
                 </div>
                 <div class="col-md-4">
                     <ASP:RequiredFieldValidator ControlToValidate="cState"
