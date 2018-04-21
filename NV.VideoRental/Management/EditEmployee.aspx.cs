@@ -8,7 +8,6 @@ using System.Web.UI.WebControls;
 using SaltFunction;
 using HashFunction;
 using FormValidator;
-using DuplicateChecker;
 
 namespace NV.VideoRental.Management
 {
@@ -101,12 +100,40 @@ namespace NV.VideoRental.Management
             string lookupSalt = null;
             string passwordPlusSalt = null;
             string passwordString = ePassword.Text.ToString();
+            string stateStr = eState.Text.ToString();
+            string zipStr = eZipCode.Text.ToString();
+            string phoneStr = ePhoneNumber.Text.ToString();
             
             // TODO: Form validator code
             SaltGenerator salt = new SaltGenerator();
             HasherOfPasswords hash = new HasherOfPasswords();
             FormValidatorClass fv = new FormValidatorClass();
-            DuplicateCheckerClass dc = new DuplicateCheckerClass();
+
+            // validate state, zip and phone
+            bool validState = fv.IsValidState(stateStr);
+            if(!validState)
+            {
+                // invalid state
+                // TODO: notify EditEmployee.aspx of invalid state
+                stateStr = null;
+            }
+
+            bool validZip = fv.IsValidZip(zipStr);
+            if(!validZip)
+            {
+                // invalid zip
+                // TODO: notify EditEmployee.aspx of invalid zip
+                zipStr = null;
+            }
+
+            bool validPhone = fv.IsValidPhone(phoneStr);
+            if(!validPhone)
+            {
+                // invalid phone
+                // TODO: notify EditEmployee.aspx of invalid phone
+                phoneStr = null;
+            }
+            
 
             using (LacklusterEntities entity = new LacklusterEntities())
             {
@@ -116,16 +143,24 @@ namespace NV.VideoRental.Management
                 emp.lastName = eLastName.Text;
                 emp.streetAddress = eAddress.Text;
                 emp.city = eCity.Text;
-                emp.state = eState.Text;
+                emp.state = stateStr;
                 int zipFromString = 0;
-                int.TryParse(eZipCode.Text, out zipFromString);
-
+                int.TryParse(zipStr, out zipFromString);
+                emp.zip = zipFromString;
+                /*
                 if (zipFromString != 0)
                 {
                     emp.zip = zipFromString;
                 }
-                emp.phone = ePhoneNumber.Text;
-                emp.llv_password = ePassword.Text;
+                */
+                emp.phone = phoneStr;
+
+                // generate new salt and take new password
+                lookupSalt = salt.SaltMe(emp.firstName, emp.lastName);
+                passwordPlusSalt = passwordString + lookupSalt;
+                emp.llv_password = hash.HashPassword(passwordPlusSalt);
+                emp.salt = lookupSalt;
+
                 emp.manager = eIsManager.Checked;
                 entity.SaveChanges();
             }
