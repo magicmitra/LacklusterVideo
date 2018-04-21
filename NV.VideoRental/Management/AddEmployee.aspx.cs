@@ -122,11 +122,13 @@ namespace NV.VideoRental.Management
                 em.manager = eIsManager.Checked;
                 em.active = true;
 
-                /*
-                int zipFromString = 0;
-                int.TryParse(eZipCode.Text, out zipFromString);
-
                 
+                int zipFromString = 0;
+                int.TryParse(zipStr, out zipFromString);
+
+                em.zip = zipFromString;
+
+                /*
                 if (zipFromString != 0)
                 {
                     em.zip = zipFromString;
