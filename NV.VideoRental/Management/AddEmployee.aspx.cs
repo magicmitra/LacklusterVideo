@@ -33,7 +33,11 @@ namespace NV.VideoRental.Management
              */
             string lookupSalt = null;
             string passwordPlusSalt = null;
-            string passwordString = ePassword.Text;
+            string passwordString = ePassword.Text.ToString();
+            SaltGenerator salt = new SaltGenerator();
+            HasherOfPasswords hash = new HasherOfPasswords();
+            FormValidatorClass fv = new FormValidatorClass();
+            DuplicateCheckerClass dc = new DuplicateCheckerClass();
 
             /* TODO
              * These variables will be used to check for validation.
@@ -46,24 +50,66 @@ namespace NV.VideoRental.Management
             string stAddressStr = eAddress.Text.ToString();
             string stateStr = eState.Text.ToString();
             string phoneStr = ePhoneNumber.Text.ToString();
+            string zipStr = eZipCode.Text.ToString();
             string userNameStr = eUsername.Text.ToString();
+            
+            // validate if person already exists
+            bool duplicatePerson = dc.AlreadyExists(firstNameStr, lastNameStr, stAddressStr, userNameStr);
+            if(duplicatePerson)
+            {
+                // then this person already exists in the records
+                // TODO: write code in here that alerts the AddEmployee.aspx page of a dulpicate 
+                // entry attempt. For now, NULL the values so they will not be passed to the DB
+                firstNameStr = null;
+                lastNameStr = null;
+                stAddressStr = null;
+                userNameStr = null;
+            }
+            // No need for else, keep validating... If entry does not exist in DB, values 
+            // won't be nulled.
 
-            // transfer these components to the outside
-            SaltGenerator salt = new SaltGenerator();
-            HasherOfPasswords hash = new HasherOfPasswords();
-            FormValidatorClass fv = new FormValidatorClass();
-            DuplicateCheckerClass dc = new DuplicateCheckerClass();
+            // validate state intial
+            bool validState = fv.IsValidState(stateStr);
+            if(!validState)
+            {
+                // State is not valid. 
+                // TODO: write code in here that alerts the AddEmployee.aspx page of an invalid
+                // state. For now, NULL the values so they will not be passed to the DB
+                stateStr = null;
+            }
+            // No need for else, keep validating... 
+
+            // validate phone number
+            bool validPhone = fv.IsValidPhone(phoneStr);
+            if(!validPhone)
+            {
+                // Phone number is not valid.
+                // TODO: write code that alerts AddEmployee.aspx page of an invalid phone.
+                // NULL the value so it will not be passed to the DB.
+                phoneStr = null;
+            }
+
+            // validate zip
+            bool validZip = fv.IsValidZip(zipStr);
+            if(!validZip)
+            {
+
+                // Zip Code is not valid.
+                // TODO: write code that alerts AddEmployee.aspx page of an invalid zip.
+                // NULL the value so it will not be passed to the DB.
+                zipStr = null;
+            }
 
             using (LacklusterEntities entity = new LacklusterEntities())
             {
                 employee em = new employee();
-                em.firstName = eFirstName.Text.ToString();
-                em.lastName = eLastName.Text.ToString();
-                em.streetAddress = eAddress.Text.ToString();
+                em.firstName = firstNameStr;
+                em.lastName = lastNameStr;
+                em.streetAddress = stAddressStr;
                 em.city = eCity.Text.ToString();
-                em.state = eState.Text.ToString();
-                em.phone = ePhoneNumber.Text.ToString();
-                em.userName = eUsername.Text.ToString();
+                em.state = stateStr;
+                em.phone = phoneStr;
+                em.userName = userNameStr;
 
                 lookupSalt = salt.SaltMe(em.firstName, em.lastName);
                 passwordPlusSalt = passwordString + lookupSalt;
@@ -76,9 +122,11 @@ namespace NV.VideoRental.Management
                 em.manager = eIsManager.Checked;
                 em.active = true;
 
+                /*
                 int zipFromString = 0;
                 int.TryParse(eZipCode.Text, out zipFromString);
 
+                
                 if (zipFromString != 0)
                 {
                     em.zip = zipFromString;
@@ -87,7 +135,7 @@ namespace NV.VideoRental.Management
                 {
                     em.zip = 99999;
                 }
-
+                */
                 entity.employees.Add(em);
                 entity.SaveChanges();
             }
