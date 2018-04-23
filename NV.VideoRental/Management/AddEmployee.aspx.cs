@@ -64,9 +64,14 @@ namespace NV.VideoRental.Management
                 lastNameStr = null;
                 stAddressStr = null;
                 userNameStr = null;
+                rfvFirst.ErrorMessage = "Required, Person you entered already exists";
+                rfvLast.ErrorMessage = "Required, Person you entered already exists";
+                rfvFirst.ForeColor = System.Drawing.Color.Red;
+                rfvLast.ForeColor = System.Drawing.Color.Red;
             }
             // No need for else, keep validating... If entry does not exist in DB, values 
-            // won't be nulled.
+            // won't be nulled. Essentially, values are nulled to force the 
+            // ASP:RequiredFieldValidator to throw an error. 
 
             // validate state intial
             bool validState = fv.IsValidState(stateStr);
@@ -76,6 +81,8 @@ namespace NV.VideoRental.Management
                 // TODO: write code in here that alerts the AddEmployee.aspx page of an invalid
                 // state. For now, NULL the values so they will not be passed to the DB
                 stateStr = null;
+                rfvState.ErrorMessage = "Required, Enter a valid US state initial (CA, IL, GA)";
+                rfvState.ForeColor = System.Drawing.Color.Red;
             }
             // No need for else, keep validating... 
 
@@ -87,6 +94,8 @@ namespace NV.VideoRental.Management
                 // TODO: write code that alerts AddEmployee.aspx page of an invalid phone.
                 // NULL the value so it will not be passed to the DB.
                 phoneStr = null;
+                rfvPhone.ErrorMessage = "Required, Enter a valid phone number";
+                rfvPhone.ForeColor = System.Drawing.Color.Red;
             }
 
             // validate zip
@@ -98,6 +107,8 @@ namespace NV.VideoRental.Management
                 // TODO: write code that alerts AddEmployee.aspx page of an invalid zip.
                 // NULL the value so it will not be passed to the DB.
                 zipStr = null;
+                rfvZip.ErrorMessage = "Required, Enter a Valid Zip Code";
+                rfvZip.ForeColor = System.Drawing.Color.Red;
             }
 
             using (LacklusterEntities entity = new LacklusterEntities())
