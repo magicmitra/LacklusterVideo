@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FormValidator;
 
 namespace NV.VideoRental.Management
 {
@@ -87,22 +88,56 @@ namespace NV.VideoRental.Management
 
         protected void btnComplete_Click(object sender, EventArgs e)
         {
+            string stateStr = cState.Text.ToString();
+            string zipStr = cZipCode.Text.ToString();
+            string phoneStr = cPhoneNumber.Text.ToString();
+            FormValidatorClass fv = new FormValidatorClass();
+
+            // validate state, zip, phone
+            bool validState = fv.IsValidState(stateStr);
+            if(!validState)
+            {
+                stateStr = null;
+                rfvState.ErrorMessage = "Required, enter valid US state initial (CA, IL, GA)";
+                rfvState.ForeColor = System.Drawing.Color.Red;
+            }
+
+            bool validZip = fv.IsValidZip(zipStr);
+            if(!validZip)
+            {
+                zipStr = null;
+                rfvZip.ErrorMessage = "Required, enter a valid Zip Code";
+                rfvZip.ForeColor = System.Drawing.Color.Red;
+            }
+
+            bool validPhone = fv.IsValidPhone(phoneStr);
+            if(!validPhone)
+            {
+                phoneStr = null;
+                rfvPhone.ErrorMessage = "Required, enter a valid phone number";
+                rfvPhone.ForeColor = System.Drawing.Color.Red;
+            }
+
             using (LacklusterEntities entity = new LacklusterEntities())
             {
                 custID = Int32.Parse(Request.QueryString["ID"]);
                 customer cust = entity.customers.Where(c => c.custID == custID).Single();
                 cust.firstName = cFirstName.Text;
                 cust.lastName = cLastName.Text;
+                cust.phone = phoneStr;
                 cust.streetAddress = cAddress.Text;
                 cust.city = cCity.Text;
-                cust.state = cState.Text;
+                cust.state = stateStr;
                 int zipFromString = 0;
-                int.TryParse(cZipCode.Text, out zipFromString);
-
+                int.TryParse(zipStr, out zipFromString);
+                cust.zip = zipFromString;
+                
+                /*
                 if (zipFromString != 0)
                 {
                     cust.zip = zipFromString;
                 }
+                */
 
                 entity.SaveChanges();
             }
