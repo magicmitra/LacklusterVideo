@@ -65,8 +65,8 @@ namespace DuplicateChecker
                 // Create sql commands that are parameterized
                 // DB transaction: select username for a person with
                 // particular 1st name, last name and address
-                // NOTE: might have to change 'users' to 'employees' depending on table name
-                cmd = new SqlCommand("Select userName from users where firstName=@first AND lastName=@last AND streetAddress=@address", conn);
+                // NOTE: might have to change table to 'users' depending on table name
+                cmd = new SqlCommand("Select userName from employees where firstName=@first AND lastName=@last AND streetAddress=@address", conn);
                 cmd.Parameters.Add("@first", SqlDbType.VarChar, 25);
                 cmd.Parameters.Add("@last", SqlDbType.VarChar, 25);
                 cmd.Parameters.Add("@address", SqlDbType.VarChar, 25);
@@ -141,7 +141,6 @@ namespace DuplicateChecker
             {
                 returnedValue = true;
             }
-
 
             return returnedValue;
         }
