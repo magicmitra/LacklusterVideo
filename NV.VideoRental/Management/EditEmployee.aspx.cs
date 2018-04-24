@@ -116,6 +116,8 @@ namespace NV.VideoRental.Management
                 // invalid state
                 // TODO: notify EditEmployee.aspx of invalid state
                 stateStr = null;
+                rfvState.ErrorMessage = "Required, enter a valid US state initial(CA, IL, GA)";
+                rfvState.ForeColor = System.Drawing.Color.Red;
             }
 
             bool validZip = fv.IsValidZip(zipStr);
@@ -124,6 +126,8 @@ namespace NV.VideoRental.Management
                 // invalid zip
                 // TODO: notify EditEmployee.aspx of invalid zip
                 zipStr = null;
+                rfvZip.ErrorMessage = "Required, enter a valid Zip Code";
+                rfvZip.ForeColor = System.Drawing.Color.Red;
             }
 
             bool validPhone = fv.IsValidPhone(phoneStr);
@@ -132,6 +136,8 @@ namespace NV.VideoRental.Management
                 // invalid phone
                 // TODO: notify EditEmployee.aspx of invalid phone
                 phoneStr = null;
+                rfvPhone.ErrorMessage = "Required, enter a valid phone number";
+                rfvPhone.ForeColor = System.Drawing.Color.Red;
             }
             
 

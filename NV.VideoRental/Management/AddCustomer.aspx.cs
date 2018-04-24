@@ -41,6 +41,10 @@ namespace NV.VideoRental.Management
                 firstNameStr = null;
                 lastNameStr = null;
                 stAddressStr = null;
+                rfvFirst.ErrorMessage = "Required, person you entered already exists";
+                rfvLast.ErrorMessage = "Required, person you entered already exists";
+                rfvFirst.ForeColor = System.Drawing.Color.Red;
+                rfvLast.ForeColor = System.Drawing.Color.Red;
             }
             // No need for else, keep validating....
 
@@ -51,6 +55,8 @@ namespace NV.VideoRental.Management
                 // invalid state.
                 // TODO: create code to notify AddCustomer.aspx of invalid state
                 stateStr = null;
+                rfvState.ErrorMessage = "Required, enter a valid US state intial (CA, IL. GA)";
+                rfvState.ForeColor = System.Drawing.Color.Red;
             }
             // keep validating
 
@@ -61,6 +67,8 @@ namespace NV.VideoRental.Management
                 // invalid phone
                 // TODO: notify AddCustomer.aspx of invalid phone
                 phoneStr = null;
+                rfvPhone.ErrorMessage = "Required, enter a valid phone number";
+                rfvPhone.ForeColor = System.Drawing.Color.Red;
             }
 
             // validate zip code
@@ -70,6 +78,8 @@ namespace NV.VideoRental.Management
                 // invalid zip
                 // TODO: notify AddCustomer.aspx of invalid zip
                 zipStr = null;
+                rfvZip.ErrorMessage = "Required, enter a valid Zip Code";
+                rfvZip.ForeColor = System.Drawing.Color.Red;
             }
 
             using (LacklusterEntities entity = new LacklusterEntities())
