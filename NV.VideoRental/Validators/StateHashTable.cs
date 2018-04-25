@@ -11,7 +11,7 @@ namespace StateHashTable
 {
     public class StateHashTableClass : Hashtable 
     {
-        protected Hashtable states;
+        public Hashtable states;
 
         public StateHashTableClass()
         {
