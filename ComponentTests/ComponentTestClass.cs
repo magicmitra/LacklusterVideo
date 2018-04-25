@@ -87,6 +87,35 @@ namespace ComponentTests
             }
             Console.WriteLine(" ");
 
+            // 4b. Test password + salt combo, then hash
+            // Expected result: Hashes Match
+            string combo1 = testHash.HashPassword(passwordEx1 + fromSalt1);
+            string combo2 = testHash.HashPassword(passwordEx2 + fromSalt2);
+            Console.WriteLine("Test 4b");
+            if(0 == string.Compare(combo1, combo2, false))
+            {
+                Console.WriteLine("Hashes Match");
+            }
+            else
+            {
+                Console.WriteLine("Hashes Do Not Match");
+            }
+            Console.WriteLine(" ");
+
+            // 4c. Same password, different salts then hash
+            // Expected result: Hashes Do No Match
+            string combo3 = testHash.HashPassword(passwordEx1 + fromSalt3);
+            Console.WriteLine("Test 4c");
+            if (0 == string.Compare(combo1, combo3, false))
+            {
+                Console.WriteLine("Hashes Match");
+            }
+            else
+            {
+                Console.WriteLine("Hashes Do Not Match");
+            }
+            Console.WriteLine(" ");
+
             // Test the form validators
 
             // Zip Code Test
@@ -129,6 +158,49 @@ namespace ComponentTests
             else
             {
                 Console.WriteLine("Valid Zip");
+            }
+            Console.WriteLine(" ");
+
+            // Phone Number Test
+            // 8. Valid US Phone
+            // Expected result: Valid US Phone Number
+            bool validPhone = testFV.IsValidPhone("8181234567");
+            Console.WriteLine("Test 8");
+            if(!validPhone)
+            {
+                Console.WriteLine("Invalid US Phone");
+            }
+            else
+            {
+                Console.WriteLine("Valid US Phone");
+            }
+            Console.WriteLine(" ");
+
+            // 9. Invalid US Phone -> 9 digits only
+            // Expected result: Invalid US Phone
+            validPhone = testFV.IsValidPhone("818123456");
+            Console.WriteLine("Test 9");
+            if(!validPhone)
+            {
+                Console.WriteLine("Invalid US Phone");
+            }
+            else
+            {
+                Console.WriteLine("Valid US Phone");
+            }
+            Console.WriteLine(" ");
+
+            // 10. Valid US Phone with dashes
+            // Expected result: Valid US Phone
+            validPhone = testFV.IsValidPhone("818-123-4567");
+            Console.WriteLine("Test 10");
+            if(!validPhone)
+            {
+                Console.WriteLine("Invalid US Phone");
+            }
+            else
+            {
+                Console.WriteLine("Valid US Phone");
             }
             Console.WriteLine(" ");
         }
