@@ -61,14 +61,15 @@ namespace FormValidator
         public bool IsValidState(string state)
         {
             bool returnedValue = false;
-
+            state = state.ToUpper();
             try
             {
 
                 StateHashTableClass table = new StateHashTableClass();
-                if (table.ContainsKey(state))
+                if (table.states.ContainsKey(state))
                 {
                     returnedValue = true;
+                    return returnedValue;
                 }
             }
             catch(Exception ex)

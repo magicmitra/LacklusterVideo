@@ -28,11 +28,11 @@ namespace ComponentTests
             Console.WriteLine("Test 1");
             if (0 == string.Compare(fromHasher1, fromHasher2, false))
             {
-                Console.WriteLine("Hashes Match");
+                Console.WriteLine("Hashes Match, Test Passed");
             }
             else
             {
-                Console.WriteLine("Hashes Do Not Match");
+                Console.WriteLine("Hashes Do Not Match. Test Failed");
             }
             Console.WriteLine(" ");
 
@@ -43,11 +43,11 @@ namespace ComponentTests
             Console.WriteLine("Test 2");
             if (0 == string.Compare(fromHasher1, fromHasher3, false))
             {
-                Console.WriteLine("Hashes Match");
+                Console.WriteLine("Hashes Match, Test Failed");
             }
             else
             {
-                Console.WriteLine("Hashes Do Not Match");
+                Console.WriteLine("Hashes Do Not Match, Test Passed");
             }
             Console.WriteLine(" ");
 
@@ -63,11 +63,11 @@ namespace ComponentTests
             Console.WriteLine("Test 3");
             if (0 == string.Compare(fromSalt1, fromSalt2, false))
             {
-                Console.WriteLine("Salts Match");
+                Console.WriteLine("Salts Match, Test Passed");
             }
             else
             {
-                Console.WriteLine("Salts Do Not Match");
+                Console.WriteLine("Salts Do Not Match, Test Failed");
             }
             Console.WriteLine(" ");
 
@@ -79,11 +79,11 @@ namespace ComponentTests
             Console.WriteLine("Test 4");
             if (0 == string.Compare(fromSalt1, fromSalt3, false))
             {
-                Console.WriteLine("Salts Match");
+                Console.WriteLine("Salts Match, Test Failed");
             }
             else
             {
-                Console.WriteLine("Salts Do Not Match");
+                Console.WriteLine("Salts Do Not Match, Test Passed");
             }
             Console.WriteLine(" ");
 
@@ -94,11 +94,11 @@ namespace ComponentTests
             Console.WriteLine("Test 4b");
             if(0 == string.Compare(combo1, combo2, false))
             {
-                Console.WriteLine("Hashes Match");
+                Console.WriteLine("Hashes Match, Test Passed");
             }
             else
             {
-                Console.WriteLine("Hashes Do Not Match");
+                Console.WriteLine("Hashes Do Not Match, Test Failed");
             }
             Console.WriteLine(" ");
 
@@ -108,11 +108,11 @@ namespace ComponentTests
             Console.WriteLine("Test 4c");
             if (0 == string.Compare(combo1, combo3, false))
             {
-                Console.WriteLine("Hashes Match");
+                Console.WriteLine("Hashes Match, Test Failed");
             }
             else
             {
-                Console.WriteLine("Hashes Do Not Match");
+                Console.WriteLine("Hashes Do Not Match, Test Passed");
             }
             Console.WriteLine(" ");
 
@@ -125,11 +125,11 @@ namespace ComponentTests
             Console.WriteLine("Test 5");
             if (!validZip)
             {
-                Console.WriteLine("Invalid Zip");
+                Console.WriteLine("Invalid Zip, Test Failed");
             }
             else
             {
-                Console.WriteLine("Valid Zip");
+                Console.WriteLine("Valid Zip, Test Passed");
             }
             Console.WriteLine(" ");
 
@@ -139,11 +139,11 @@ namespace ComponentTests
             Console.WriteLine("Test 6");
             if (!validZip)
             {
-                Console.WriteLine("Invalid Zip");
+                Console.WriteLine("Invalid Zip, Test Passed");
             }
             else
             {
-                Console.WriteLine("Valid Zip");
+                Console.WriteLine("Valid Zip, Test Failed");
             }
             Console.WriteLine(" ");
 
@@ -153,11 +153,11 @@ namespace ComponentTests
             Console.WriteLine("Test 7");
             if(!validZip)
             {
-                Console.WriteLine("Invalid Zip");
+                Console.WriteLine("Invalid Zip, Test Passed");
             }
             else
             {
-                Console.WriteLine("Valid Zip");
+                Console.WriteLine("Valid Zip, Test Failed");
             }
             Console.WriteLine(" ");
 
@@ -168,11 +168,11 @@ namespace ComponentTests
             Console.WriteLine("Test 8");
             if(!validPhone)
             {
-                Console.WriteLine("Invalid US Phone");
+                Console.WriteLine("Invalid US Phone, Test Failed");
             }
             else
             {
-                Console.WriteLine("Valid US Phone");
+                Console.WriteLine("Valid US Phone, Test Passed");
             }
             Console.WriteLine(" ");
 
@@ -182,11 +182,11 @@ namespace ComponentTests
             Console.WriteLine("Test 9");
             if(!validPhone)
             {
-                Console.WriteLine("Invalid US Phone");
+                Console.WriteLine("Invalid US Phone, Test Passed");
             }
             else
             {
-                Console.WriteLine("Valid US Phone");
+                Console.WriteLine("Valid US Phone. Test Failed");
             }
             Console.WriteLine(" ");
 
@@ -196,11 +196,68 @@ namespace ComponentTests
             Console.WriteLine("Test 10");
             if(!validPhone)
             {
-                Console.WriteLine("Invalid US Phone");
+                Console.WriteLine("Invalid US Phone, Test Failed");
             }
             else
             {
-                Console.WriteLine("Valid US Phone");
+                Console.WriteLine("Valid US Phone, Test Passed");
+            }
+            Console.WriteLine(" ");
+
+            // 11. Name written as phone number
+            // Expected result: Invalid US Phone
+            validPhone = testFV.IsValidPhone("Sven");
+            Console.WriteLine("Test 11");
+            if(!validPhone)
+            {
+                Console.WriteLine("Invalid US Phone, Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("Valid US Phone, Test Failed");
+            }
+            Console.WriteLine(" ");
+
+            // US State Initial
+            // 12. Valid US State Initial
+            // Expected Result: Valid US Zip
+            bool validState = testFV.IsValidState("CA");
+            Console.WriteLine("Test 12");
+            if(!validState)
+            {
+                Console.WriteLine("Invalid US State, Test Failed");
+            }
+            else
+            {
+                Console.WriteLine("Valid US State, Test Passed");
+            }
+            Console.WriteLine(" ");
+
+            // 13. Invalid state
+            // Expected result: Invalid US State
+            validState = testFV.IsValidState("Afganistan");
+            Console.WriteLine("Test 13");
+            if(!validState)
+            {
+                Console.WriteLine("Invalid US State, Test Passed");
+            }
+            else
+            {
+                Console.WriteLine("Valid US State, Test Failed");
+            }
+            Console.WriteLine(" ");
+
+            // 14. Valid state , 2nd letter is uncapitalized
+            // Expected result: Valid US State
+            validState = testFV.IsValidState("Hi");
+            Console.WriteLine("Test 14");
+            if(!validState)
+            {
+                Console.WriteLine("Invalid US State, Test Failed");
+            }
+            else
+            {
+                Console.WriteLine("Valid US State, Test Passed");
             }
             Console.WriteLine(" ");
         }
