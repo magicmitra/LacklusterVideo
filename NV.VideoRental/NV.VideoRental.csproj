@@ -507,6 +507,9 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Validators\DuplicateChecker.cs" />
+    <Compile Include="Validators\FormValidator.cs" />
+    <Compile Include="Validators\StateHashTable.cs" />
     <Compile Include="video.cs">
       <DependentUpon>LacklusterModel.tt</DependentUpon>
     </Compile>
