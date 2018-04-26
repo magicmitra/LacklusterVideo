@@ -58,6 +58,7 @@ namespace NV.VideoRental.Account
             // and passwordPlusSalt(string)
             string lookupSalt = null;
             string passwordPlusSalt = null;
+            HasherOfPasswords hash = new HasherOfPasswords();
 
             // Check for invalid userName.
             // userName must not be null and must be between 1 and 15 characters.
@@ -87,7 +88,8 @@ namespace NV.VideoRental.Account
                     {
                         txtIsManager.Value = emp.manager.ToString();
                         lookupSalt = emp.salt;
-
+                        passwordPlusSalt = passWord + lookupSalt;
+                        passWord = hash.HashPassword(passwordPlusSalt);
                         return (emp.llv_password == passWord);
                     }
                 }
