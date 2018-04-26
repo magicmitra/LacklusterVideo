@@ -52,6 +52,7 @@ namespace NV.VideoRental.Management
             string phoneStr = ePhoneNumber.Text.ToString();
             string zipStr = eZipCode.Text.ToString();
             string userNameStr = eUsername.Text.ToString();
+            bool pageValid = true;
             
             // validate if person already exists
             bool duplicatePerson = dc.AlreadyExists(firstNameStr, lastNameStr, stAddressStr, userNameStr);
@@ -68,6 +69,7 @@ namespace NV.VideoRental.Management
                 rfvLast.ErrorMessage = "Required, Person you entered already exists";
                 rfvFirst.ForeColor = System.Drawing.Color.Red;
                 rfvLast.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
             }
             // No need for else, keep validating... If entry does not exist in DB, values 
             // won't be nulled. Essentially, values are nulled to force the 
@@ -83,6 +85,7 @@ namespace NV.VideoRental.Management
                 stateStr = null;
                 rfvState.ErrorMessage = "Required, Enter a valid US state initial (CA, IL, GA)";
                 rfvState.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
             }
             // No need for else, keep validating... 
 
@@ -96,6 +99,7 @@ namespace NV.VideoRental.Management
                 phoneStr = null;
                 rfvPhone.ErrorMessage = "Required, Enter a valid phone number";
                 rfvPhone.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
             }
 
             // validate zip
@@ -109,50 +113,58 @@ namespace NV.VideoRental.Management
                 zipStr = null;
                 rfvZip.ErrorMessage = "Required, Enter a Valid Zip Code";
                 rfvZip.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
             }
 
-            using (LacklusterEntities entity = new LacklusterEntities())
+            // save to DB only if entries are validated. 
+            if (pageValid == true)
             {
-                employee em = new employee();
-                em.firstName = firstNameStr;
-                em.lastName = lastNameStr;
-                em.streetAddress = stAddressStr;
-                em.city = eCity.Text.ToString();
-                em.state = stateStr;
-                em.phone = phoneStr;
-                em.userName = userNameStr;
-
-                lookupSalt = salt.SaltMe(em.firstName, em.lastName);
-                passwordPlusSalt = passwordString + lookupSalt;
-                em.llv_password = hash.HashPassword(passwordPlusSalt);
-                em.salt = lookupSalt;
-
-                //em.llv_password = ePassword.Text;
-                //eUsername.Text = passwordPlusSalt;
-
-                em.manager = eIsManager.Checked;
-                em.active = true;
-
-                
-                int zipFromString = 0;
-                int.TryParse(zipStr, out zipFromString);
-
-                em.zip = zipFromString;
-
-                /*
-                if (zipFromString != 0)
+                using (LacklusterEntities entity = new LacklusterEntities())
                 {
+                    employee em = new employee();
+                    em.firstName = firstNameStr;
+                    em.lastName = lastNameStr;
+                    em.streetAddress = stAddressStr;
+                    em.city = eCity.Text.ToString();
+                    em.state = stateStr;
+                    em.phone = phoneStr;
+                    em.userName = userNameStr;
+
+                    lookupSalt = salt.SaltMe(em.firstName, em.lastName);
+                    passwordPlusSalt = passwordString + lookupSalt;
+                    em.llv_password = hash.HashPassword(passwordPlusSalt);
+                    em.salt = lookupSalt;
+
+                    //em.llv_password = ePassword.Text;
+                    //eUsername.Text = passwordPlusSalt;
+
+                    em.manager = eIsManager.Checked;
+                    em.active = true;
+
+
+                    int zipFromString = 0;
+                    int.TryParse(zipStr, out zipFromString);
+
                     em.zip = zipFromString;
-                }
-                else
-                {
-                    em.zip = 99999;
-                }
-                */
-                entity.employees.Add(em);
-                entity.SaveChanges();
-            }
 
+                    /*
+                    if (zipFromString != 0)
+                    {
+                        em.zip = zipFromString;
+                    }
+                    else
+                    {
+                        em.zip = 99999;
+                    }
+                    */
+                    entity.employees.Add(em);
+                    entity.SaveChanges();
+                }
+            }
+            else
+            {
+                // redirect? 
+            }
             Response.Redirect("~/Management/ManageEmployee.aspx");
         }
     }

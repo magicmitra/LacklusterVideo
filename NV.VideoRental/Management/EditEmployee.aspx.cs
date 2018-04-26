@@ -103,6 +103,7 @@ namespace NV.VideoRental.Management
             string stateStr = eState.Text.ToString();
             string zipStr = eZipCode.Text.ToString();
             string phoneStr = ePhoneNumber.Text.ToString();
+            bool pageValid = true;
             
             // TODO: Form validator code
             SaltGenerator salt = new SaltGenerator();
@@ -118,6 +119,8 @@ namespace NV.VideoRental.Management
                 stateStr = null;
                 rfvState.ErrorMessage = "Required, enter a valid US state initial(CA, IL, GA)";
                 rfvState.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
+                
             }
 
             bool validZip = fv.IsValidZip(zipStr);
@@ -128,6 +131,7 @@ namespace NV.VideoRental.Management
                 zipStr = null;
                 rfvZip.ErrorMessage = "Required, enter a valid Zip Code";
                 rfvZip.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
             }
 
             bool validPhone = fv.IsValidPhone(phoneStr);
@@ -138,37 +142,45 @@ namespace NV.VideoRental.Management
                 phoneStr = null;
                 rfvPhone.ErrorMessage = "Required, enter a valid phone number";
                 rfvPhone.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
             }
-            
 
-            using (LacklusterEntities entity = new LacklusterEntities())
+            // save to DB only if entries are validated
+            if (pageValid == true)
             {
-                empID = Int32.Parse(Request.QueryString["ID"]);
-                employee emp = entity.employees.Where(em => em.empID == empID).Single();
-                emp.firstName = eFirstName.Text;
-                emp.lastName = eLastName.Text;
-                emp.streetAddress = eAddress.Text;
-                emp.city = eCity.Text;
-                emp.state = stateStr;
-                int zipFromString = 0;
-                int.TryParse(zipStr, out zipFromString);
-                emp.zip = zipFromString;
-                /*
-                if (zipFromString != 0)
+                using (LacklusterEntities entity = new LacklusterEntities())
                 {
+                    empID = Int32.Parse(Request.QueryString["ID"]);
+                    employee emp = entity.employees.Where(em => em.empID == empID).Single();
+                    emp.firstName = eFirstName.Text;
+                    emp.lastName = eLastName.Text;
+                    emp.streetAddress = eAddress.Text;
+                    emp.city = eCity.Text;
+                    emp.state = stateStr;
+                    int zipFromString = 0;
+                    int.TryParse(zipStr, out zipFromString);
                     emp.zip = zipFromString;
+                    /*
+                    if (zipFromString != 0)
+                    {
+                        emp.zip = zipFromString;
+                    }
+                    */
+                    emp.phone = phoneStr;
+
+                    // generate new salt and take new password
+                    lookupSalt = salt.SaltMe(emp.firstName, emp.lastName);
+                    passwordPlusSalt = passwordString + lookupSalt;
+                    emp.llv_password = hash.HashPassword(passwordPlusSalt);
+                    emp.salt = lookupSalt;
+
+                    emp.manager = eIsManager.Checked;
+                    entity.SaveChanges();
                 }
-                */
-                emp.phone = phoneStr;
-
-                // generate new salt and take new password
-                lookupSalt = salt.SaltMe(emp.firstName, emp.lastName);
-                passwordPlusSalt = passwordString + lookupSalt;
-                emp.llv_password = hash.HashPassword(passwordPlusSalt);
-                emp.salt = lookupSalt;
-
-                emp.manager = eIsManager.Checked;
-                entity.SaveChanges();
+            }
+            else
+            {
+                // redirect
             }
 
             Response.Redirect("EditEmployee.aspx");
