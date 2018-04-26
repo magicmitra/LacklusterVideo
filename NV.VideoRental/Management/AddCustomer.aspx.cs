@@ -25,6 +25,7 @@ namespace NV.VideoRental.Management
             string stateStr = cState.Text.ToString();
             string zipStr = cZipCode.Text.ToString();
             string phoneStr = cPhoneNumber.ToString();
+            bool pageValid = true;
 
             // TODO:
             // Add some code validation, WORK IN PROGRESS 
@@ -45,6 +46,7 @@ namespace NV.VideoRental.Management
                 rfvLast.ErrorMessage = "Required, person you entered already exists";
                 rfvFirst.ForeColor = System.Drawing.Color.Red;
                 rfvLast.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
             }
             // No need for else, keep validating....
 
@@ -57,6 +59,7 @@ namespace NV.VideoRental.Management
                 stateStr = null;
                 rfvState.ErrorMessage = "Required, enter a valid US state intial (CA, IL. GA)";
                 rfvState.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
             }
             // keep validating
 
@@ -69,6 +72,7 @@ namespace NV.VideoRental.Management
                 phoneStr = null;
                 rfvPhone.ErrorMessage = "Required, enter a valid phone number";
                 rfvPhone.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
             }
 
             // validate zip code
@@ -80,38 +84,47 @@ namespace NV.VideoRental.Management
                 zipStr = null;
                 rfvZip.ErrorMessage = "Required, enter a valid Zip Code";
                 rfvZip.ForeColor = System.Drawing.Color.Red;
+                pageValid = false;
             }
 
-            using (LacklusterEntities entity = new LacklusterEntities())
+            // save to DB only if entries are validated
+            if(pageValid == true)
             {
-                customer c = new customer();
-                c.firstName = firstNameStr;
-                c.lastName = lastNameStr;
-                c.streetAddress = stAddressStr;
-                c.city = cCity.Text.ToString();
-                c.state = stateStr;
-                c.phone = phoneStr;
-
-                
-                int zipFromString = 0;
-                int.TryParse(zipStr, out zipFromString);
-
-                c.zip = zipFromString;
-                /*
-                if (zipFromString != 0)
+                using (LacklusterEntities entity = new LacklusterEntities())
                 {
+                    customer c = new customer();
+                    c.firstName = firstNameStr;
+                    c.lastName = lastNameStr;
+                    c.streetAddress = stAddressStr;
+                    c.city = cCity.Text.ToString();
+                    c.state = stateStr;
+                    c.phone = phoneStr;
+
+
+                    int zipFromString = 0;
+                    int.TryParse(zipStr, out zipFromString);
+
                     c.zip = zipFromString;
-                }
-                else
-                {
-                    c.zip = 99999;
-                }
-                */
+                    /*
+                    if (zipFromString != 0)
+                    {
+                        c.zip = zipFromString;
+                    }
+                    else
+                    {
+                        c.zip = 99999;
+                    }
+                    */
 
-                c.active = true;
+                    c.active = true;
 
-                entity.customers.Add(c);
-                entity.SaveChanges();
+                    entity.customers.Add(c);
+                    entity.SaveChanges();
+                }
+            }
+            else
+            {
+                // redirect?
             }
 
             Response.Redirect("~/Management/ManageCustomer.aspx");
