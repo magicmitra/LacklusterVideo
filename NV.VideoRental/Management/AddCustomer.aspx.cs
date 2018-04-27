@@ -24,7 +24,7 @@ namespace NV.VideoRental.Management
             string stAddressStr = cAddress.Text.ToString();
             string stateStr = cState.Text.ToString();
             string zipStr = cZipCode.Text.ToString();
-            string phoneStr = cPhoneNumber.ToString();
+            string phoneStr = cPhoneNumber.Text.ToString();
             bool pageValid = true;
 
             // TODO:
